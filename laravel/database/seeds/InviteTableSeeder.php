@@ -11,6 +11,11 @@ class InviteTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('invites')->insert([
+            'user_id' => 1,
+            'invite_user_id' => 2,
+            'token' => 'hogehoge'
+        ]);
+
     }
 }
