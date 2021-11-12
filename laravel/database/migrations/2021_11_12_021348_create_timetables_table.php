@@ -13,7 +13,8 @@ class CreateTimetablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('timetables', function (Blueprint $table) {
+        Schema::create('timetables', function (Blueprint $table){
+            $table->bigIncrements('id')->unique();
             $table->Int('week_count');
             $table->Int('period');
             $table->bigint('user_id');
