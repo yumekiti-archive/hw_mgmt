@@ -1,22 +1,39 @@
 <template>
     <div class="Test">
-        <li v-for="(todo, key) in todos" :key="key">
-            {{ todo.text }}
-        </li>
+        <input type="text" v-model="url" />
+        <p>url id /api/{{url}}</p>
+
+        <button @click="this.get">get</button>
+        <button @click="this.get">delete</button>
+
+        <div>
+            <p>{{this.data}}</p>
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'Test',
-        data:function () {
-            return {
-                todos: [
-                    { text: 'Learn JavaScript' },
-                    { text: 'Learn Vue' },
-                    { text: 'Build something awesome' }
-                ]
-            }
+import axios from 'axios'
+
+export default {
+    name: 'Test',
+    data: () => {
+        return {
+            url: '',
+            data: null
         }
-    }
+    },
+    methods: {
+        get: async () => {
+            await axios
+                .get('/api/' + this.url)
+                .then(res => (this.data = res))
+        },
+        delete: async () => {
+            await axios
+                .delete('/api/' + this.url)
+                .then(res => (this.data = res))
+        },
+    },
+}
 </script>
