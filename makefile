@@ -23,7 +23,8 @@ down:
 
 .PHONY: restart
 restart:
-	$(dc) restart
+	make down
+	make init
 
 .PHONY: rm
 rm:
@@ -63,3 +64,7 @@ fresh:
 docker-rm:
 	docker stop `docker ps -aq` ;
 	docker rm `docker ps -aq`
+
+.PHONY: file-rm
+file-rm:
+	rm -fr ./vue/node_modules/
