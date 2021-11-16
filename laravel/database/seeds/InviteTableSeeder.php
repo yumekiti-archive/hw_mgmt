@@ -16,6 +16,6 @@ class InviteTableSeeder extends Seeder
             'invite_user_id' => 2,
             'token' => 'hogehoge'
         ]);
-
     }
 }
+?>
