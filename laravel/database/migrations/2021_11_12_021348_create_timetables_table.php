@@ -15,10 +15,10 @@ class CreateTimetablesTable extends Migration
     {
         Schema::create('timetables', function (Blueprint $table){
             $table->bigIncrements('id')->unique();
-            $table->Int('week_count');
-            $table->Int('period');
-            $table->bigint('user_id');
-            $table->bigint('lesson_id');
+            $table->integer('week_count');
+            $table->integer('period');
+            $table->bigInteger('user_id');
+            $table->bigInteger('lesson_id');
         });
     }
 

@@ -16,7 +16,7 @@ class CreateLessonsTable extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->bigIncrements('id')->unique();
             $table->string('title');
-            $table->bigint('limit');
+            $table->bigInteger('limit');
             $table->timestamps();
         });
     }
