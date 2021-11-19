@@ -1,50 +1,50 @@
 <template>
     <div>
-        <input type="text" v-model="this.url" />
+        <input type="text" v-model="url" />
         <p>url is -> localhost:8080/api/{{this.url}}</p>
 
         <h3>lesson</h3>
         <span>
             title
-            <input type="text" v-model="this.title" /><br>
+            <input type="text" v-model="title" /><br>
             limit
-            <input type="text" v-model="this.limit" /><br>
+            <input type="text" v-model="limit" /><br>
         </span><br>
 
         <h3>timetable</h3>
         <span>
             week_count
-            <input type="text" v-model="this.week_count" /><br>
+            <input type="text" v-model="week_count" /><br>
             period
-            <input type="text" v-model="this.period" /><br>
+            <input type="text" v-model="period" /><br>
             lesson_id
-            <input type="text" v-model="this.lesson_id" /><br>
+            <input type="text" v-model="lesson_id" /><br>
         </span><br>
 
         <h3>task</h3>
         <span>
             achievement_count
-            <input type="text" v-model="this.achievement_count" /><br>
+            <input type="text" v-model="achievement_count" /><br>
             lesson_id
-            <input type="text" v-model="this.lesson_id" /><br>
+            <input type="text" v-model="lesson_id" /><br>
             detail
-            <input type="text" v-model="this.detail" /><br>
+            <input type="text" v-model="detail" /><br>
         </span><br>
 
         <h3>invite</h3>
         <span>
             invite_user_id
-            <input type="text" v-model="this.invite_user_id" /><br>
+            <input type="text" v-model="invite_user_id" /><br>
         </span><br>
 
         <h3>user</h3>
         <span>
             name
-            <input type="text" v-model="this.name" /><br>
+            <input type="text" v-model="name" /><br>
             email
-            <input type="text" v-model="this.email" /><br>
+            <input type="text" v-model="email" /><br>
             password
-            <input type="text" v-model="this.password" /><br>
+            <input type="text" v-model="password" /><br>
         </span><br>
 
         <button @click="this.get">get</button>
