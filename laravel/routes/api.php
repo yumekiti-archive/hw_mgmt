@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('users', 'UserController@store')->middleware('auth:sanctum');
+
+Route::get('/', function () {
+    return 'Hello World';
+});

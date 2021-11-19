@@ -84,17 +84,21 @@ export default {
         get: function () {
             axios
                 .get('/api/' + this.url)
-                .then(res => (this.data = res.data))
+                .then(res => {
+                    this.data = res.data
+                    console.log(res.data)
+                })
                 .catch((err) => {
                     console.log(err);
                 });
-            console.log(this.data)
         },
         delete: function () {
             axios
                 .delete('/api/' + this.url)
-                .then(res => (this.data = res.data))
-            console.log(this.data)
+                .then(res => {
+                    this.data = res.data
+                    console.log(res.data)
+                })
         },
         post: function () {
             const formData = {
@@ -112,8 +116,10 @@ export default {
             }
             axios
                 .post('/api/' + this.url, formData)
-                .then(res => (this.data = res.data))
-            console.log(this.data)
+                .then(res => {
+                    this.data = res.data
+                    console.log(res.data)
+                })
         },
         put: function () {
             const formData = {
@@ -131,8 +137,10 @@ export default {
             }
             axios
                 .put('/api/' + this.url, formData)
-                .then(res => (this.data = res.data))
-            console.log(this.data)
+                .then(res => {
+                    this.data = res.data
+                    console.log(res.data)
+                })
         },
         login() {
             const postData = {
@@ -142,9 +150,11 @@ export default {
             axios.get('/api/csrf-cookie').then(() => {
                 axios
                     .post('/api/' + this.url, postData)
-                    .then(res => (this.data = res.data))
+                    .then(res => {
+                        this.data = res.data
+                        console.log(res.data)
+                    })
             });
-            console.log(this.data)
         }
     },
 }
