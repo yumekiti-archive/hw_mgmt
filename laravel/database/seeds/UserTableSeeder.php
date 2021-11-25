@@ -38,16 +38,15 @@ class UserTableSeeder extends Seeder
         User::factory()->count(8)->create();
         */
 
-        # 初期化
-        DB::table('users')->delete();
 
         # テストデータ挿入
         DB::table('users')->insert([
             'name'    => 'user1',
-            'email' => 'user1@example.com',
+            'email' => 'user@example.com',
             'email_verified_at' => new DateTime(),
-            # 「secret」でログイン
-            'password' => Hash::make('secret')
+            'password' => Hash::make('secret'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
         ]);
     }
 }

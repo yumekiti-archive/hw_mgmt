@@ -8,14 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function index(Request $request)
     {
         return User::get();
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        
     }
 
 
@@ -23,4 +28,16 @@ class UserController extends Controller
     {
         
     }
+
+    public function update(Request $request)
+    {
+        // TODO: mashimo 認証が実装出来たら認証中のユーザを使うようにする。
+        $user = User::first();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return $user;
+    }
+
 }
