@@ -28,3 +28,5 @@ Route::get('/user', 'UserController@index');
 Route::put('/user', 'UserController@update');
 
 Route::post('/user', 'UserController@store');
+
+Route::get('/task', 'TaskController@index');
