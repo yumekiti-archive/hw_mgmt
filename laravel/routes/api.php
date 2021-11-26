@@ -17,10 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/user', 'UserController@store');
 
 Route::get('/', function () {
     return 'Hello World';
 });
 
 Route::get('/user', 'UserController@index');
+
+Route::put('/user', 'UserController@update');
+
+Route::post('/user', 'UserController@store');
