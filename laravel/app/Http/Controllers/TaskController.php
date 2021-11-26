@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\User;
 
 class TaskController extends Controller
 {
@@ -14,7 +15,9 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
-        return Task::get();
+        //認証が実装出来たら認証中のユーザを使うようにする。
+        $user = User::first();
+        return $user->tasks()->get();
     }
     
 
@@ -38,8 +41,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         //
-        return 
-        Task::create([
+        //認証が実装出来たら認証中のユーザを使うようにする。
+        $user = User::first();
+        return $user->tasks()->create([
             'achievement_count' => $request->input('achievement_count'),
             'lesson_id' => $request->input('lesson_id'),
             'detail' => $request->input('detail'),
