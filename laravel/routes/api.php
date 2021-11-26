@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,7 @@ Route::get('/', function () {
 });
 
 Route::get('/user', 'UserController@index');
+
+Route::put('/user', 'UserController@update');
 
 Route::post('/user', 'UserController@store');
