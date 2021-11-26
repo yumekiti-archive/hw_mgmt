@@ -26,6 +26,7 @@ class TaskController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**
@@ -37,6 +38,12 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         //
+        return 
+        Task::create([
+            'achievement_count' => $request->input('achievement_count'),
+            'lesson_id' => $request->input('lesson_id'),
+            'detail' => $request->input('detail'),
+        ]);
     }
 
     /**
@@ -45,7 +52,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
     }
@@ -56,7 +63,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -68,7 +75,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
@@ -79,7 +86,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
     }
