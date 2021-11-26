@@ -46,4 +46,10 @@ class UserController extends Controller
         return $user;
     }
 
+    public function destory(){
+        $user = User::first();
+        $user->delete();
+        return $user;
+    }
+
 }
