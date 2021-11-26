@@ -17,10 +17,11 @@ class UserTableSeeder extends Seeder
         # テストデータ挿入
         DB::table('users')->insert([
             'name'    => 'user1',
-            'email' => 'user1@example.com',
+            'email' => 'user@example.com',
             'email_verified_at' => new DateTime(),
-            # 「secret」でログイン
-            'password' => Hash::make('secret')
+            'password' => Hash::make('secret'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime()
         ]);
     }
 }
