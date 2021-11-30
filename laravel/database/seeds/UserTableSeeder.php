@@ -14,10 +14,11 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        $faker = Faker\Factory::create();
         # テストデータ挿入
         DB::table('users')->insert([
             'name'    => 'user1',
-            'email' => 'user@example.com',
+            'email' =>  $faker->unique()->safeEmail,
             'email_verified_at' => new DateTime(),
             'password' => Hash::make('secret'),
             'created_at' => new DateTime(),

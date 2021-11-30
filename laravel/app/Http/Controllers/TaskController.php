@@ -17,7 +17,7 @@ class TaskController extends Controller
     {
         //認証が実装出来たら認証中のユーザを使うようにする。
         $user = User::first();
-        return $user->tasks()->get();
+        return $user->task()->get();
     }
     
 

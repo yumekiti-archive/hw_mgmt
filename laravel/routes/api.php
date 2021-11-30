@@ -29,6 +29,8 @@ Route::put('/user', 'UserController@update');
 
 Route::post('/user', 'UserController@store');
 
+Route::delete('/user', 'UserController@destory');
+
 Route::get('/task', 'TaskController@index');
 
 Route::post('/task', 'TaskController@store');
