@@ -81,7 +81,7 @@ export default {
         }
     },
     methods: {
-        get: function () {
+        get() {
             axios
                 .get('/api/' + this.url)
                 .then(res => {
@@ -92,7 +92,7 @@ export default {
                     console.log(err);
                 });
         },
-        delete: function () {
+        delete () {
             axios
                 .delete('/api/' + this.url)
                 .then(res => {
@@ -100,7 +100,7 @@ export default {
                     console.log(res.data)
                 })
         },
-        post: function () {
+        post () {
             const formData = {
                 name: this.name,
                 email: this.email,
@@ -121,7 +121,7 @@ export default {
                     console.log(res.data)
                 })
         },
-        put: function () {
+        put () {
             const formData = {
                 name: this.name,
                 email: this.email,

@@ -41,8 +41,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         //
-        return 
-        Task::create([
+        //認証が実装出来たら認証中のユーザを使うようにする。
+        $user = User::first();
+        return $user->tasks()->create([
             'achievement_count' => $request->input('achievement_count'),
             'lesson_id' => $request->input('lesson_id'),
             'detail' => $request->input('detail'),
