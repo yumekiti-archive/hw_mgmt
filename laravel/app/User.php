@@ -44,5 +44,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class, "user_id");
     }
+    public function timetables()
+    {
+        return $this->hasMany(Timetable::class,"user_id");
+    }
 
 }

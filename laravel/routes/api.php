@@ -32,3 +32,7 @@ Route::post('/user', 'UserController@store');
 Route::delete('/user', 'UserController@destory');
 
 Route::get('/task', 'TaskController@index');
+
+Route::get('/timetable', 'TimetableController@index');
+
+Route::post('/timetable', 'TimetableController@store');
