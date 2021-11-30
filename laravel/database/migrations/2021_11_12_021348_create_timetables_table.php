@@ -17,8 +17,11 @@ class CreateTimetablesTable extends Migration
             $table->bigIncrements('id')->unique();
             $table->integer('week_count');
             $table->integer('period');
-            $table->bigInteger('user_id');
-            $table->bigInteger('lesson_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('lesson_id');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
 

@@ -17,7 +17,7 @@ class LessonTableSeeder extends Seeder
         $titles = [null];
 
         for($i = 0; $i < 10; $i++){
-            $titles[$i] = '授業' + ($i + 1);
+            $titles[$i] = '授業' . ($i + 1);
         }
 
         foreach ($titles as $title) {

@@ -13,7 +13,7 @@ class TaskTableSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 0; $i < 3; $i++){
+        for($i = 1; $i < 3; $i++){
             DB::table('tasks')->insert([
                 'detail' => "テスト" . $i,
                 'lesson_id' => $i,
