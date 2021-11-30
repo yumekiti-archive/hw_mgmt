@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Foundation\Auth\Task as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
@@ -23,4 +24,5 @@ class Task extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }
