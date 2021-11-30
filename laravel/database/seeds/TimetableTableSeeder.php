@@ -11,12 +11,12 @@ class TimetableTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 5; $i++){
+        for($i = 1; $i < 5; $i++){
             DB::table('timetables')->insert([
                 'period' => 1,
-                'week_count' => ($i + 1),
+                'week_count' => $i,
                 'user_id' => 1,
-                'lesson_id' => ($i + 1)
+                'lesson_id' => $i
             ]);
         }
     }
