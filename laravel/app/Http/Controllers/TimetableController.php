@@ -8,10 +8,21 @@ use App\User;
 
 class TimetableController extends Controller
 {
-    //
+
     public function index(Request $request)
     {
         $user = User::first();
         return $user->timetables()->get();
+    }
+
+    public function store(Request $request)
+    {
+        $user = User::first();
+        return $user->timetables()->create([
+            'week_count' => $request->input('week_count'),
+            'period' => $request->input('period'),
+            'lesson_id' => $request->input('lesson_id'),
+            'user_id'=> $user->id,
+        ]);
     }
 }

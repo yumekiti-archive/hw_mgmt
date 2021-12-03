@@ -16,7 +16,7 @@ class TimetableTableSeeder extends Seeder
                 'period' => 1,
                 'week_count' => $i,
                 'user_id' => 1,
-                'lesson_id' => $i
+                'lesson_id' => $i,
             ]);
         }
     }
