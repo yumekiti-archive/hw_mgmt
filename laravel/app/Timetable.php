@@ -10,6 +10,8 @@ class Timetable extends Model
         'week_count', 'period', 'lesson_id',
     ];
 
+    // public $timestamps = false;
+
     public function user(){
         return $this->belongsTo(User::class);
     }
