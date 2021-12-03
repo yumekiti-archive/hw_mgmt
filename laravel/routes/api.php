@@ -35,4 +35,6 @@ Route::get('/task', 'TaskController@index');
 
 Route::post('/task', 'TaskController@store');
 
+Route::put('/task/update/{id}', 'TaskController@update');
+
 Route::get('/timetable', 'TimetableController@index');

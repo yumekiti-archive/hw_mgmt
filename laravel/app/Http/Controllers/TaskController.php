@@ -79,9 +79,19 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
+        // TODO: mashimo 認証が実装出来たら認証中のユーザを使うようにする。
+        $user = User::first();
+        $task = $user->tasks()->find($id);
+        $task->update([
+            'achievement_count' => $request->input('achievement_count'),
+            'lesson_id' => $request->input('lesson_id'),
+            'detail' => $request->input('detail'),
+        ]);
+
+        return $task;
     }
 
     /**
