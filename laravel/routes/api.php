@@ -39,7 +39,9 @@ Route::put('/task/update/{id}', 'TaskController@update');
 
 Route::delete('/task/{id}', 'TaskController@destory');
 
-Route::get('/lesson', 'TaskController@index');
+Route::get('/lesson', 'LessonController@index');
+
+Route::post('/lesson', 'LessonController@store');
 
 Route::get('/timetable', 'TimetableController@index');
 

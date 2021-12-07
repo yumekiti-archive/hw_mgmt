@@ -8,10 +8,10 @@ class Lesson extends Model
 {
     //
     protected $fillable = [
-        'tile', 'limit',
+        'title', 'limit',
     ];
 
-    public function tasks()
+    public function timetables()
     {
         return $this->hasMany(Lesson::class,"lesson_id");
     }
