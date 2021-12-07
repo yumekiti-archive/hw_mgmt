@@ -8,7 +8,7 @@ use App\User;
 
 class TimetableController extends Controller
 {
-    //
+
     public function index(Request $request)
     {
         $user = User::first();
@@ -39,5 +39,9 @@ class TimetableController extends Controller
         ]);
         return $timetable;
     }
-
+    public function destory($id){
+        $user = User::first();
+        $timetable = $user->timetables()->find($id)->delete();
+        return  $id;
+    }
 }
