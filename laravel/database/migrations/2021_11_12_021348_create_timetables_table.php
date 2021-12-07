@@ -25,7 +25,6 @@ class CreateTimetablesTable extends Migration
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

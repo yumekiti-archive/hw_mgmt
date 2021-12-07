@@ -43,4 +43,8 @@ Route::get('/timetable', 'TimetableController@index');
 
 Route::post('/timetable', 'TimetableController@store');
 
+Route::put('/timetable/update/{id}', 'TimetableController@update');
+
+Route::delete('/timetable/{id}', 'TimetableController@destory');
+
 
