@@ -11,4 +11,9 @@ class Lesson extends Model
         'tile', 'limit',
     ];
 
+    public function tasks()
+    {
+        return $this->hasMany(Lesson::class,"lesson_id");
+    }
+
 }
