@@ -21,8 +21,8 @@ class CreateTasksTable extends Migration
             $table->integer('achievement_count');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('lesson_id')->references('id')->on('lessons');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
 

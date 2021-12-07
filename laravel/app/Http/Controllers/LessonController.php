@@ -35,4 +35,15 @@ class LessonController extends Controller
         return $lesson;
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return 
+     */
+    public function destory($id){
+        $lesson = Lesson::find($id);
+        $lesson->delete();
+    }
+
 }
