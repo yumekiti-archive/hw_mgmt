@@ -43,6 +43,8 @@ Route::get('/lesson', 'LessonController@index');
 
 Route::post('/lesson', 'LessonController@store');
 
+Route::put('/lesson/update/{id}', 'LessonController@update');
+
 Route::get('/timetable', 'TimetableController@index');
 
 Route::post('/timetable', 'TimetableController@store');
