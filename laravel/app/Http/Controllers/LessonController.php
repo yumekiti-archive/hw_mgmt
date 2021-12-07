@@ -23,4 +23,16 @@ class LessonController extends Controller
         ]);
     }
 
+    public function update(Request $request, $id)
+    {
+        //
+        $lesson = Lesson::find($id);
+        $lesson->update([
+            'title' => $request->input('title'),
+            'limit' => $request->input('limit'),
+        ]);
+
+        return $lesson;
+    }
+
 }
