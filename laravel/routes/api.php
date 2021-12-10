@@ -59,4 +59,7 @@ Route::put('/timetable/update/{id}', 'TimetableController@update');
 
 Route::delete('/timetable/{id}', 'TimetableController@destory');
 
+//
+Route::get('/invite', 'InviteController@index');
+
 
