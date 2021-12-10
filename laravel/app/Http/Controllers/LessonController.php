@@ -17,13 +17,16 @@ class LessonController extends Controller
 
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'title' => 'required|max:30|alpha_num',
             'limit' => 'required|numeric',
         ]);
+      
         return Lesson::create([
-            'title' => $validatedData->input('title'),
-            'limit' => $validatedData->input('limit'),
+            'title' => $request->input('title'),
+            'limit' => $request->input('limit'),
+
         ]);
     }
 
@@ -49,5 +52,5 @@ class LessonController extends Controller
         $lesson = Lesson::find($id);
         $lesson->delete();
     }
-
 }
+

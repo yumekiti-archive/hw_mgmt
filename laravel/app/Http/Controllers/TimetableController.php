@@ -44,6 +44,7 @@ class TimetableController extends Controller
         ]);
         return $timetable;
     }
+    
     public function destory($id){
         $user = User::first();
         $timetable = $user->timetables()->find($id)->delete();

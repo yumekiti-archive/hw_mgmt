@@ -105,8 +105,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
-    {
-        //
+    public function destory($id){
+        $user = User::first();
+        $task = $user->tasks()->find($id)->delete();
+        return  $id;
     }
 }
