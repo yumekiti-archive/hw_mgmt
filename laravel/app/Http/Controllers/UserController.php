@@ -22,9 +22,14 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|unique:posts|email:rfc,dns',
+            'password' => 'required|password:api',
+        ]);
         return User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
+            'name' => $validatedData->input('name'),
+            'email' => $validatedData ->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
     }
