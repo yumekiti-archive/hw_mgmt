@@ -42,11 +42,16 @@ class TaskController extends Controller
     {
         //
         //認証が実装出来たら認証中のユーザを使うようにする。
+        $validatedData = $request->validate([
+            'achievement_count' => 'required|numeric',
+            'lesson_id' => 'required|numeric',
+            'detail' => 'required',
+        ]);
         $user = User::first();
         return $user->tasks()->create([
-            'achievement_count' => $request->input('achievement_count'),
-            'lesson_id' => $request->input('lesson_id'),
-            'detail' => $request->input('detail'),
+            'achievement_count' => $validatedData->input('achievement_count'),
+            'lesson_id' => $validatedData->input('lesson_id'),
+            'detail' => $validatedData->input('detail'),
         ]);
     }
 
