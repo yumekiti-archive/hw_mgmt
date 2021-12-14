@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Invite;
+use App\User;
 
 class InviteController extends Controller
 {
@@ -62,7 +63,10 @@ class InviteController extends Controller
     public function destroy($id)
     {
         $user = User::first();
-        $task = $user->Invites()->find($id)->delete();
+        $user->
+        Invites()->
+        where('invite_user_id','=',$id)->
+        delete();
         return  $id;
     }
 }
