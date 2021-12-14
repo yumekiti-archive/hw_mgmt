@@ -59,7 +59,9 @@ Route::put('/timetable/update/{id}', 'TimetableController@update');
 
 Route::delete('/timetable/{id}', 'TimetableController@destory');
 
-//
+//招待の処理
 Route::get('/invite', 'InviteController@index');
+
+Route::delete('/invite/{id}', 'InviteController@destory');
 
 
