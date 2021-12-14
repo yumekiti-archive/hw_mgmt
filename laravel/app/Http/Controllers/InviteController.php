@@ -61,6 +61,8 @@ class InviteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::first();
+        $task = $user->Invites()->find($id)->delete();
+        return  $id;
     }
 }
