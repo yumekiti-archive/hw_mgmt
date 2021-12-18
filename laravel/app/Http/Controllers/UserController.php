@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use App\User;
+
 class UserController extends Controller
 {
 
@@ -16,39 +18,28 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:30',
-            'email' => 'required|unique:posts|email:rfc,dns',
-            'password' => 'required|password:api',
-        ]);
         return User::create([
-            'name' => $validatedData->input('name'),
-            'email' => $validatedData ->input('email'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
     }
 
-
-    public function show()
-    {
-        
-    }
-
     public function update(Request $request)
     {
-        // TODO: mashimo 認証が実装出来たら認証中のユーザを使うようにする。
-        $user = User::first();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return $user;
+        Auth::user()->
+        update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ]);
+        return Auth::user();
     }
 
     public function destory(){
-        $user = User::first();
+        $user = Auth::user();
         $user->delete();
-        return $user;
+        return $user->id;
     }
 
     public function login(Request $request){
