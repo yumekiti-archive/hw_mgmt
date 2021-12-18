@@ -19,5 +19,11 @@ class TimetableTableSeeder extends Seeder
                 'lesson_id' => $i,
             ]);
         }
+        DB::table('timetables')->insert([
+            'period' => 2,
+            'week_count' => 1,
+            'user_id' => 1,
+            'lesson_id' => 1,
+        ]);
     }
 }

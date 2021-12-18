@@ -4,10 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+use App\Lesson;
+
 class Timetable extends Model
 {
     protected $fillable = [
         'week_count', 'period', 'lesson_id',
+    ];
+    
+    protected $hidden = [
+        'id', 'user_id', 'lesson_id', 'updated_at'
     ];
 
     // public $timestamps = false;
@@ -17,6 +24,6 @@ class Timetable extends Model
     }
 
     public function lesson(){
-        return $this->belongsTo(Lesson::class);
+        return $this->hasOne(Lesson::class, 'id', 'lesson_id');
     }
 }

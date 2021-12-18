@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
     public function timetables()
     {
-        return $this->hasMany(Timetable::class,"user_id");
+        return $this->hasMany(Timetable::class);
     }
     public function invites()
     {
