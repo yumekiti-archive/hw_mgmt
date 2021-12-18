@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        return Auth::get();
+        return Auth::user();
     }
 
     public function store(Request $request)

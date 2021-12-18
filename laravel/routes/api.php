@@ -22,32 +22,35 @@ use App\Http\Controllers\UserController;
 //     return 'Hello World';
 // });
 
-//ユーザーの処理
-Route::get('/user', 'UserController@index');
-Route::put('/user', 'UserController@update');
-Route::post('/user', 'UserController@store');
-Route::delete('/user', 'UserController@destory');
+//認証
+Route::post('/login', 'UserController@login');
 
-//タスクの処理
-Route::get('/task', 'TaskController@index');
-Route::post('/task', 'TaskController@store');
-Route::put('/task/update/{id}', 'TaskController@update');
-Route::delete('/task/{id}', 'TaskController@destory');
+Route::middleware('auth:sanctum')->group(function () {
+    //ユーザーの処理
+    Route::get('/user', 'UserController@index');
+    Route::put('/user', 'UserController@update');
+    Route::post('/user', 'UserController@store');
+    Route::delete('/user', 'UserController@destory');
 
-//レッスンの処理
-Route::get('/lesson', 'LessonController@index');
-Route::post('/lesson', 'LessonController@store');
-Route::put('/lesson/update/{id}', 'LessonController@update');
-Route::delete('/lesson/{id}', 'LessonController@destory');
+    //タスクの処理
+    Route::get('/task', 'TaskController@index');
+    Route::post('/task', 'TaskController@store');
+    Route::put('/task/update/{id}', 'TaskController@update');
+    Route::delete('/task/{id}', 'TaskController@destory');
 
-//時間割の処理
-Route::get('/timetable', 'TimetableController@index');
-Route::post('/timetable', 'TimetableController@store');
-Route::put('/timetable/update/{id}', 'TimetableController@update');
-Route::delete('/timetable/{id}', 'TimetableController@destory');
+    //レッスンの処理
+    Route::get('/lesson', 'LessonController@index');
+    Route::post('/lesson', 'LessonController@store');
+    Route::put('/lesson/update/{id}', 'LessonController@update');
+    Route::delete('/lesson/{id}', 'LessonController@destory');
 
-//招待の処理
-Route::get('/invite', 'InviteController@index');
-Route::delete('/invite/{id}', 'InviteController@destory');
+    //時間割の処理
+    Route::get('/timetable', 'TimetableController@index');
+    Route::post('/timetable', 'TimetableController@store');
+    Route::put('/timetable/update/{id}', 'TimetableController@update');
+    Route::delete('/timetable/{id}', 'TimetableController@destory');
 
-
+    //招待の処理
+    Route::get('/invite', 'InviteController@index');
+    Route::delete('/invite/{id}', 'InviteController@destory');
+});

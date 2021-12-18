@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use App\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -14,6 +14,14 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        factory(User::class)->create([
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'name' => 'test',
+            'email' => 'test@test.jp',
+            'password' => bcrypt('testtest')
+        ]);
+
         $faker = Faker\Factory::create();
         # テストデータ挿入
         DB::table('users')->insert([

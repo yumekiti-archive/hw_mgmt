@@ -144,8 +144,8 @@ export default {
         },
         login() {
             const postData = {
-                email: this.email,
-                password: this.password,
+                email: 'test@test.jp',
+                password: 'testtest',
             }
             axios.get('/api/csrf-cookie').then(() => {
                 axios
