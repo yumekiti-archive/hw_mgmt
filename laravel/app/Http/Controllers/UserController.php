@@ -3,21 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User; //User 追加
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
-
     public function index(Request $request)
     {
-        return User::get();
+        return Auth::get();
     }
 
     public function store(Request $request)
@@ -55,6 +49,13 @@ class UserController extends Controller
         $user = User::first();
         $user->delete();
         return $user;
+    }
+
+    public function login(Request $request){
+        if(Auth::attempt($request->all())) {
+            return Auth::user();
+        }
+        return response(204);
     }
 
 }
