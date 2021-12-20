@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Timetable;
-use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class TimetableController extends Controller
 {
 
-    public function index(Request $request)
+    public function index()
     {
-        $user = User::first();
-        return $user->timetables()->get();
+        return Auth::user()->timetables()->with('lesson')->get();
     }
 
     public function store(Request $request)

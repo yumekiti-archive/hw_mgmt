@@ -144,12 +144,12 @@ export default {
         },
         login() {
             const postData = {
-                email: this.email,
-                password: this.password,
+                email: 'test@test.jp',
+                password: 'testtest',
             }
             axios.get('/api/csrf-cookie').then(() => {
                 axios
-                    .post('/api/' + this.url, postData)
+                    .post('/api/login', postData)
                     .then(res => {
                         this.data = res.data
                         console.log(res.data)

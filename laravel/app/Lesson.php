@@ -10,6 +10,11 @@ class Lesson extends Model
     protected $fillable = [
         'title', 'limit',
     ];
+
+    protected $hidden = [
+        'id', 'created_at', 'updated_at'
+    ];
+
     public function tasks()
     {
         return $this->hasMany(Lesson::class,"lesson_id");
