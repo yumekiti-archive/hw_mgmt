@@ -37,16 +37,15 @@ class UserController extends Controller
     }
 
     public function destory(){
-        $user = Auth::user();
-        $user->delete();
-        return $user->id;
+        Auth::user()->delete();
+        return response()->noContent();
     }
 
     public function login(Request $request){
         if(Auth::attempt($request->all())) {
             return Auth::user();
         }
-        return response(204);
+        return response()->noContent();
     }
 
 }
