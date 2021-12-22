@@ -34,20 +34,21 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //タスクの処理
     Route::get('/task', 'TaskController@index');
+    Route::get('/task/{id}', 'TaskController@show');
     Route::post('/task', 'TaskController@store');
-    Route::put('/task/update/{id}', 'TaskController@update');
+    Route::put('/task/{id}', 'TaskController@update');
     Route::delete('/task/{id}', 'TaskController@destory');
 
     //レッスンの処理
     Route::get('/lesson', 'LessonController@index');
     Route::post('/lesson', 'LessonController@store');
-    Route::put('/lesson/update/{id}', 'LessonController@update');
+    Route::put('/lesson/{id}', 'LessonController@update');
     Route::delete('/lesson/{id}', 'LessonController@destory');
 
     //時間割の処理
     Route::get('/timetable', 'TimetableController@index');
     Route::post('/timetable', 'TimetableController@store');
-    Route::put('/timetable/update/{id}', 'TimetableController@update');
+    Route::put('/timetable/{id}', 'TimetableController@update');
     Route::delete('/timetable/{id}', 'TimetableController@destory');
 
     //招待の処理
