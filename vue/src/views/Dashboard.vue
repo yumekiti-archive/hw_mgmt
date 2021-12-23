@@ -3,6 +3,7 @@
         <p>Dashboard</p>
         <p>{{this.user}}</p>
         <p>{{this.task}}</p>
+        <p>{{this.rate}}</p>
     </div>
 </template>
 <script>
@@ -15,10 +16,14 @@ export default {
         task(){
             return this.$store.state.task.data
         },
+        rate(){
+            return this.$store.state.rate.data
+        },
     },
     created() {
         this.$store.dispatch('user/get')
         this.$store.dispatch('task/today')
+        this.$store.dispatch('rate/get')
     },
 }
 </script>

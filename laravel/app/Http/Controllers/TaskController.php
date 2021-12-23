@@ -17,6 +17,13 @@ class TaskController extends Controller
         return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with('lesson')->get();
     }
 
+    public function rate(){
+        return [
+            'all' => Auth::user()->tasks()->count(),
+            'completion' => Auth::user()->tasks()->where('achievement', '=', true)->count(),
+        ];
+    }
+
     public function store(Request $request)
     {
         return Auth::user()->tasks()->create([
@@ -33,7 +40,7 @@ class TaskController extends Controller
     {
         $task = Auth::user()->tasks()->findOrFail($id);
         $task->update([
-            'achievement_count' => $request->input('achievement_count'),
+            'achievement' => $request->input('achievement'),
             'lesson_id' => $request->input('lesson_id'),
             'detail' => $request->input('detail'),
         ]);

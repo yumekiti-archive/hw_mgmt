@@ -14,7 +14,7 @@ class Task extends Model
     * @var array
     */
     protected $fillable = [
-        'achievement_count', 'lesson_id', 'detail'
+        'achievement', 'lesson_id', 'detail'
     ];
 
     protected $hidden = [

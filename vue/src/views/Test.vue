@@ -23,8 +23,8 @@
 
         <h3>task</h3>
         <span>
-            achievement_count
-            <input type="text" v-model="achievement_count" /><br>
+            achievement
+            <input type="text" v-model="achievement" /><br>
             lesson_id
             <input type="text" v-model="lesson_id" /><br>
             detail
@@ -71,7 +71,7 @@ export default {
             email: '',
             password: '',
             invite_user_id: '',
-            achievement_count: '',
+            achievement: '',
             lesson_id: '',
             detail: '',
             title: '',
@@ -106,7 +106,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 invite_user_id: this.invite_user_id,
-                achievement_count: this.achievement_count,
+                achievement: this.achievement,
                 lesson_id: this.lesson_id,
                 detail: this.detail,
                 title: this.title,
@@ -127,7 +127,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 invite_user_id: this.invite_user_id,
-                achievement_count: this.achievement_count,
+                achievement: this.achievement,
                 lesson_id: this.lesson_id,
                 detail: this.detail,
                 title: this.title,
