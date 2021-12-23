@@ -20,8 +20,16 @@ class TaskController extends Controller
     public function rate(){
         return [
             'all' => Auth::user()->tasks()->count(),
-            'completion' => Auth::user()->tasks()->where('achievement', '=', true)->count(),
+            'achievement' => Auth::user()->tasks()->where('achievement', '=', true)->count(),
         ];
+    }
+
+    public function achievement($id){
+        $task = Auth::user()->tasks()->findOrFail($id);
+        $task->update([
+            'achievement' => $task->achievement = !$task->achievement
+        ]);
+        return $task;
     }
 
     public function store(Request $request)
@@ -40,8 +48,6 @@ class TaskController extends Controller
     {
         $task = Auth::user()->tasks()->findOrFail($id);
         $task->update([
-            'achievement' => $request->input('achievement'),
-            'lesson_id' => $request->input('lesson_id'),
             'detail' => $request->input('detail'),
         ]);
         return $task;
