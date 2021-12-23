@@ -15,9 +15,7 @@
 
         <v-divider></v-divider>
 
-        <v-list
-            dense
-        >
+        <v-list>
             <v-list-item
                 v-for="item in items"
                 :key="item.title"
@@ -36,21 +34,23 @@
         </v-list>
         
         <template v-slot:append>
-            <v-list-item
-                v-for="item in bottom"
-                :key="item.title"
-                :to="item.url"
-                link
-                class="py-5"
-            >
-                <v-list-item-icon>
-                    <v-icon>{{ item.icon }}</v-icon>
-                </v-list-item-icon>
+            <v-list>
+                <v-list-item
+                    v-for="item in bottom"
+                    :key="item.title"
+                    :to="item.url"
+                    link
+                    class="py-5"
+                >
+                    <v-list-item-icon>
+                        <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-item-icon>
 
-                <v-list-item-content>
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
+                    <v-list-item-content>
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
         </template>
     </v-navigation-drawer>
 </template>
