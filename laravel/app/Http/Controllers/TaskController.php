@@ -18,9 +18,15 @@ class TaskController extends Controller
     }
 
     public function rate(){
+        $tasks = Auth::user()->tasks();
+        $all = $tasks->count();
+        $achievement = $tasks->where('achievement', '=', true)->count();
+        $rate = number_format($achievement / $all, 2);
+
         return [
-            'all' => Auth::user()->tasks()->count(),
-            'achievement' => Auth::user()->tasks()->where('achievement', '=', true)->count(),
+            'all' => $all,
+            'achievement' => $achievement,
+            'achievement_rate' => $rate,
         ];
     }
 
