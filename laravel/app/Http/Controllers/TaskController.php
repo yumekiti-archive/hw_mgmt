@@ -25,7 +25,7 @@ class TaskController extends Controller
     }
 
     public function achievement($id){
-        $task = Auth::user()->tasks()->findOrFail($id);
+        $task = Auth::user()->tasks()->with('lesson')->findOrFail($id);
         $task->update([
             'achievement' => $task->achievement = !$task->achievement
         ]);
