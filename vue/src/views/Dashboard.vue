@@ -1,18 +1,14 @@
 <template>
-    <div>
+    <v-container>
         <p>Dashboard</p>
-        <p>{{this.user}}</p>
         <p>{{this.task}}</p>
         <p>{{this.rate}}</p>
-    </div>
+    </v-container>
 </template>
 <script>
 export default {
     name: 'Dashboard',
     computed: {
-        user(){
-            return this.$store.state.user.data
-        },
         task(){
             return this.$store.state.task.data
         },
@@ -21,7 +17,6 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('user/get')
         this.$store.dispatch('task/today')
         this.$store.dispatch('rate/get')
     },
