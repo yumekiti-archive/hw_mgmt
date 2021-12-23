@@ -3,7 +3,6 @@
         expand-on-hover
         permanent
         app
-        :mini-variant.sync="mini"
     >
         <v-list-item class="px-2">
             <v-list-item-avatar>
@@ -71,7 +70,6 @@ export default {
                 {title: 'My Account', icon: 'mdi-account-outline', url: '/user'},
                 {title: 'Settings', icon: 'mdi-cog-outline', url: '/settings'},
             ],
-            mini: false,
         }
     },
 }
