@@ -12,6 +12,10 @@ class TaskController extends Controller
         return Auth::user()->tasks()->with('lesson')->get();
     }
 
+    public function today(){
+        return Auth::user()->tasks()->today()->with('lesson')->get();
+    }
+
     public function store(Request $request)
     {
         return Auth::user()->tasks()->create([

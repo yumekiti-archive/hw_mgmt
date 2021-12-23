@@ -18,7 +18,7 @@ export default {
     },
     created() {
         this.$store.dispatch('user/get')
-        this.$store.dispatch('task/get')
+        this.$store.dispatch('task/today')
     },
 }
 </script>

@@ -13,8 +13,8 @@ export default {
     getters:{
     },
     actions: {
-        async get({commit}){
-            await api.get('task').then(response => {
+        async today({commit}){
+            await api.get('task/today').then(response => {
                 commit('set', response);
             })
         },
