@@ -1,4 +1,4 @@
-import api from './api'
+import api from '@/libs/api'
 
 export default {
     namespaced:true,
@@ -14,13 +14,9 @@ export default {
     },
     actions: {
         async get({commit}){
-            await api.get('user')
-                .then(response => {
-                    commit('set', response);
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            await api.get('user').then(response => {
+                commit('set', response);
+            })
         },
     },
 }
