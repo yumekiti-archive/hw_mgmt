@@ -11,6 +11,7 @@ init:
 	$(dc) exec php /bin/bash -c "cp .env.example .env"
 	$(dc) exec php /bin/bash -c "php artisan key:generate"
 	$(dc) exec php /bin/bash -c "php artisan migrate"
+	$(dc) exec php /bin/bash -c "php artisan storage:link"
 
 .PHONY: up
 up:
