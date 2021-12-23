@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class TaskTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class TaskTableSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 1; $i < 3; $i++){
+        for($i = 1; $i <= 4; $i++){
             DB::table('tasks')->insert([
                 'detail' => "テスト" . $i,
                 'lesson_id' => 1,
@@ -22,6 +23,12 @@ class TaskTableSeeder extends Seeder
                 'updated_at' => new DateTime()
             ]);
         }
-        
+        DB::table('tasks')->insert([
+            'detail' => "テスト5",
+            'lesson_id' => 1,
+            'user_id' => 1,
+            'created_at' => new Carbon('yesterday'),
+            'updated_at' => new Carbon('yesterday')
+        ]);
     }
 }

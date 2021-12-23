@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
@@ -13,7 +14,7 @@ class TaskController extends Controller
     }
 
     public function today(){
-        return Auth::user()->tasks()->today()->with('lesson')->get();
+        return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with('lesson')->get();
     }
 
     public function store(Request $request)
