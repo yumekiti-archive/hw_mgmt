@@ -31,7 +31,7 @@ class UserController extends Controller
         update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => $request->input('password'),
+            'password' => Hash::make($request->input('password')),
         ]);
         return Auth::user();
     }

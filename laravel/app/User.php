@@ -37,17 +37,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-    *   userの所有するtaskを取得
-    */
     public function tasks()
     {
         return $this->hasMany(Task::class, "user_id");
     }
+
     public function timetables()
     {
         return $this->hasMany(Timetable::class);
     }
+
     public function invites()
     {
         return $this->hasMany(Invite::class,"user_id");

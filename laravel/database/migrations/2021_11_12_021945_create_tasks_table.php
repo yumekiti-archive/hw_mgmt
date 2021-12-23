@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('detail')->nullable();
             $table->unsignedBigInteger('lesson_id');
             $table->unsignedBigInteger('user_id');
-            $table->integer('achievement_count');
+            $table->integer('achievement_count')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

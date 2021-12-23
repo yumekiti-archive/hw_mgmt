@@ -18,7 +18,6 @@ class TaskTableSeeder extends Seeder
                 'detail' => "テスト" . $i,
                 'lesson_id' => 1,
                 'user_id' => 1,
-                'achievement_count' => 0,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
             ]);

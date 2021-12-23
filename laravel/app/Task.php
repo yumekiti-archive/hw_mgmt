@@ -17,16 +17,18 @@ class Task extends Model
         'achievement_count', 'lesson_id', 'detail'
     ];
 
-    /**
-    *   task所有userの取得
-    */
+    protected $hidden = [
+        'id', 'lesson_id', 'user_id', 'created_at', 'updated_at'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
     public function lesson()
     {
-        return $this->belongsTo(Lesson::class);
+        return $this->hasOne(Lesson::class, 'id', 'lesson_id');
     }
 
 }
