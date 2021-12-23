@@ -7,7 +7,7 @@
     >
         <v-list-item class="px-2">
             <v-list-item-avatar>
-                <v-img src="https://pbs.twimg.com/profile_images/1463858424371093504/KaNOSius_400x400.jpg"></v-img>
+                <v-img :src="user.profile_image"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-title>{{user.name}}</v-list-item-title>
