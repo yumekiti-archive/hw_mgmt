@@ -10,7 +10,8 @@
                     cols="12"
                     sm="6"
                 >
-                    <Rate
+                    <Rate                    
+                        v-if="this.rateData"
                         :rate="this.rate"
                     ></Rate>
                 </v-col>
@@ -30,6 +31,11 @@ import Rate from '@/components/Rate/Index'
 
 export default {
     name: 'Dashboard',
+    data: () => {
+        return {
+            rateData: false,
+        }
+    },
     components: {
         Navigation,
         Rate,
@@ -46,9 +52,13 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('task/today')
-        this.$store.dispatch('rate/get')
-        this.$store.dispatch('user/get')
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('rate/get'))
+        }).then(() => {
+            this.rateData = true
+        })
+            this.$store.dispatch('task/today')
+            this.$store.dispatch('user/get')
     },
 }
 </script>

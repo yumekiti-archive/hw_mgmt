@@ -21,11 +21,13 @@ class TaskController extends Controller
         $tasks = Auth::user()->tasks();
         $all = $tasks->count();
         $achievement = $tasks->where('achievement', '=', true)->count();
+        $not = ($all - $achievement);
         $rate = number_format($achievement / $all, 2);
 
         return [
             'all' => $all,
             'achievement' => $achievement,
+            'not' => $not,
             'achievement_rate' => $rate,
         ];
     }

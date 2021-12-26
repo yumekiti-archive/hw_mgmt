@@ -15,6 +15,8 @@
                     <Graph
                         class="d-flex justify-center align-center"
                         style="width: 90%; height: 90%;"
+                        :not="this.rate.not"
+                        :done="this.rate.achievement"
                     ></Graph>
                     <p>
                         <v-icon class="text-xl-h1 text-md-h3 text-sm-h5">mdi-calendar-check</v-icon><br>

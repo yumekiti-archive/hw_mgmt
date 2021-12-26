@@ -4,13 +4,17 @@ import { Doughnut } from 'vue-chartjs';
 export default {
     extends: Doughnut,
     name: 'chart',
+    props: {
+        done: Number,
+        not: Number,
+    },
     data () {
         return {
             data: {
                 labels: ['Done', 'Not Yet'],
                 datasets: [
                     {
-                        data: [90, 10],
+                        data: [this.done, this.not],
                         backgroundColor: ['blue', 'grey'],
                         borderWidth: 10,
                     },
@@ -25,6 +29,7 @@ export default {
                 },
                 legend: {
                     position: 'bottom',
+                    onClick: () => {return false},
                 },
             }
         }
