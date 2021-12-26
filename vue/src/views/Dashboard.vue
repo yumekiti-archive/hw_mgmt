@@ -26,7 +26,7 @@
 </template>
 <script>
 import Navigation from '@/components/Navigation'
-import Rate from '@/components/Rate'
+import Rate from '@/components/Rate/Index'
 
 export default {
     name: 'Dashboard',

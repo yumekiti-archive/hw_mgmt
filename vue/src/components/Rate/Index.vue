@@ -12,19 +12,21 @@
             </v-row>
             <v-row v-resize="onResize" :style="style">
                 <v-col cols="12">
-                    <p>{{this.rate}}</p>
+                    <Graph></Graph>
                 </v-col>
             </v-row>
         </v-container>
     </v-card>
 </template>
 <script>
-import CurrentDate from '@/components/CurrentDate'
+import CurrentDate from '@/components/Rate/CurrentDate'
+import Graph from '@/components/Rate/Graph'
 
 export default {
     name: 'Rate',
     components: {
         CurrentDate,
+        Graph,
     },
     props: {
         rate: [],
