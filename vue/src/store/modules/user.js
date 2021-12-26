@@ -7,15 +7,15 @@ export default {
     },
     mutations: {
         set: (state, response) => {
-            state.data = response.data;
+            state.data = response.data
         },
     },
-    getters:{
+    getters: {
     },
     actions: {
-        async get({commit}){
+        async get({commit}) {
             await api.get('user').then(response => {
-                commit('set', response);
+                commit('set', response)
             })
         },
     },

@@ -10,10 +10,10 @@ export default {
             state.data = response.data;
         },
     },
-    getters:{
+    getters: {
     },
     actions: {
-        async today({commit}){
+        async today({commit}) {
             await api.get('task/today').then(response => {
                 commit('set', response);
             })
