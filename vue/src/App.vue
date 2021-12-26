@@ -1,8 +1,5 @@
 <template>
     <v-app>
-        <Navigation
-            :user="this.user"
-        ></Navigation>
         <v-main>
             <router-view/>
         </v-main>
@@ -10,20 +7,7 @@
 </template>
 
 <script>
-import Navigation from '@/components/Navigation'
-
 export default {
     name: 'App',
-    components: {
-        Navigation
-    },
-    computed: {
-        user(){
-            return this.$store.state.user.data
-        },
-    },
-    created() {
-        this.$store.dispatch('user/get')
-    },
 };
 </script>

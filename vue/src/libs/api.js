@@ -1,9 +1,12 @@
 import client from "./client"
+import router from '@/router'
 
 const api = {
     get(url){
         return client.get(url).catch(error => {
-            console.log(error)
+            if(error.response?.status === 401){
+                router.push('/test')
+            }
         })
     },
 }
