@@ -11,8 +11,15 @@
                 </v-col>
             </v-row>
             <v-row v-resize="onResize" :style="style">
-                <v-col cols="12">
-                    <Graph></Graph>
+                <v-col cols="12" class="d-flex justify-center align-center">
+                    <Graph
+                        class="d-flex justify-center align-center"
+                        style="width: 90%; height: 90%;"
+                    ></Graph>
+                    <p>
+                        <v-icon class="text-xl-h1 text-md-h3 text-sm-h5">mdi-calendar-check</v-icon><br>
+                        <span class="text-xl-h1 text-md-h3 text-sm-h5">{{this.rate.achievement}} / {{this.rate.all}}</span>
+                    </p>
                 </v-col>
             </v-row>
         </v-container>
@@ -48,3 +55,14 @@ export default {
     },
 }
 </script>
+<style scoped>
+p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin: auto;
+    text-align: center;
+    transform: translateY(-60%); 
+}
+</style>
