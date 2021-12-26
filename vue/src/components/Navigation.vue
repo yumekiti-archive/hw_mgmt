@@ -39,7 +39,6 @@
                     :key="item.title"
                     :to="item.url"
                     link
-                    class="py-5"
                 >
                     <v-list-item-icon>
                         <v-icon>{{ item.icon }}</v-icon>
