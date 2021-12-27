@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <v-card>
+    <v-card class="card">
         <v-container>
             <v-row>
                 <v-col cols="12" class="d-flex">
@@ -14,7 +13,6 @@
             </v-row>
         </v-container>
     </v-card>
-    </div>
 </template>
 <script>
 export default {
@@ -24,3 +22,9 @@ export default {
     },
 }
 </script>
+<style scoped>
+.card {
+    height: 100%;
+    width: 100%;
+}
+</style>

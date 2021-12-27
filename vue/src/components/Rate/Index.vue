@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="card">
         <v-container>
             <v-row>
                 <v-col cols="12" class="d-flex">
@@ -52,5 +52,10 @@ p {
     margin: auto;
     text-align: center;
     transform: translateY(-60%); 
+}
+
+.card {
+    height: 100%;
+    width: 100%;
 }
 </style>
