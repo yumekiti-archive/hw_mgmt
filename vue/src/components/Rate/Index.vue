@@ -25,7 +25,7 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col cols="12" md="4" class="my-3 d-flex justify-center align-center" v-for="(label, index) in labels" :key="index">
+                <v-col cols="12" md="4" class="d-flex justify-center align-center" v-for="(label, index) in labels" :key="index">
                     <v-icon class="mb-1 mr-3" :color="label.color">mdi-checkbox-blank-circle</v-icon>
                     <span>{{label.title}} - {{rate[label.data]}}</span>
                 </v-col>
