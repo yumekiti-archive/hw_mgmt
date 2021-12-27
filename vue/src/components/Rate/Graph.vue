@@ -7,20 +7,21 @@ export default {
     props: {
         done: Number,
         not: Number,
+        today: Number,
     },
     data () {
         return {
             data: {
-                labels: ['Done', 'Not Yet'],
+                labels: ['Today', 'Done', 'Not Yet'],
                 datasets: [
                     {
-                        data: [this.done, this.not],
-                        backgroundColor: ['blue', 'grey'],
-                        borderWidth: 10,
+                        data: [this.today, this.done, this.not],
+                        backgroundColor: ['green', 'blue', 'grey'],
                     },
                 ]
             },
             options: {
+                rotation: -0.5 * Math.PI,
                 cutoutPercentage: 65,
                 title: {
                     display: true,

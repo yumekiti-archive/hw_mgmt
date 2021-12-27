@@ -31,5 +31,13 @@ class TaskTableSeeder extends Seeder
             'created_at' => new Carbon('yesterday'),
             'updated_at' => new Carbon('yesterday')
         ]);
+        DB::table('tasks')->insert([
+            'detail' => "テスト5",
+            'achievement' => false,
+            'lesson_id' => 1,
+            'user_id' => 1,
+            'created_at' => new Carbon('yesterday'),
+            'updated_at' => new Carbon('yesterday')
+        ]);
     }
 }

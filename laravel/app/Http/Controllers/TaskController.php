@@ -20,8 +20,9 @@ class TaskController extends Controller
     public function rate(){
         $tasks = Auth::user()->tasks();
         $all = $tasks->count();
-        $achievement = $tasks->where('achievement', '=', true)->count();
-        $not = ($all - $achievement);
+        $today = Auth::user()->tasks()->whereDate('created_at', Carbon::today())->count();
+        $achievement = Auth::user()->tasks()->where('achievement', '=', true)->count();
+        $not = ($all - $achievement - $today);
         $rate = number_format($achievement / $all, 2);
 
         return [
@@ -29,6 +30,7 @@ class TaskController extends Controller
             'achievement' => $achievement,
             'not' => $not,
             'achievement_rate' => $rate,
+            'today' => $today,
         ];
     }
 
