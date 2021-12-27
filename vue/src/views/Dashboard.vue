@@ -19,7 +19,9 @@
                     cols="12"
                     sm="6"
                 >
-                    <p>{{this.task}}</p>
+                    <Task
+                        :task="this.task"
+                    ></Task>
                 </v-col>
             </v-row>
         </v-container>
@@ -28,6 +30,7 @@
 <script>
 import Navigation from '@/components/Navigation'
 import Rate from '@/components/Rate/Index'
+import Task from '@/components/Task/Index'
 
 export default {
     name: 'Dashboard',
@@ -39,6 +42,7 @@ export default {
     components: {
         Navigation,
         Rate,
+        Task,
     },
     computed: {
         task(){
