@@ -10,7 +10,7 @@
                     </span>
                 </v-col>
             </v-row>
-            <v-row v-resize="onResize" :style="style">
+            <v-row>
                 <v-col cols="12" class="d-flex justify-center align-center">
                     <Graph
                         class="d-flex justify-center align-center"
@@ -20,8 +20,8 @@
                         :today="this.rate.today"
                     ></Graph>
                     <p>
-                        <v-icon class="text-xl-h1 text-md-h3 text-sm-h5">mdi-calendar-check</v-icon><br>
-                        <span class="text-xl-h1 text-md-h3 text-sm-h5">{{this.rate.achievement}} / {{this.rate.all}}</span>
+                        <v-icon class="text-xl-h1 text-md-h3 text-sm-h6">mdi-calendar-check</v-icon><br>
+                        <span class="text-xl-h1 text-md-h3 text-sm-h6">{{this.rate.achievement}} / {{this.rate.all}}</span>
                     </p>
                 </v-col>
             </v-row>
@@ -40,21 +40,6 @@ export default {
     },
     props: {
         rate: [],
-    },
-    data: () => {
-        return {
-            height: 0,
-        }
-    },
-    computed: {
-        style() {
-            return 'height: ' + this.height * 0.8 + 'px;'
-        },
-    },
-    methods: {
-        onResize() {
-            this.height = window.innerHeight
-        },
     },
 }
 </script>
