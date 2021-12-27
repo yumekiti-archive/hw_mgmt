@@ -19,10 +19,9 @@
                         :done="this.rate.achievement"
                         :today="this.rate.today"
                     ></Graph>
-                    <p>
-                        <v-icon class="text-xl-h1 text-md-h3 text-sm-h6">mdi-calendar-check</v-icon><br>
-                        <span class="text-xl-h1 text-md-h3 text-sm-h6">{{this.rate.achievement}} / {{this.rate.all}}</span>
-                    </p>
+                    <CenterText
+                        :rate="this.rate"
+                    ></CenterText>
                 </v-col>
             </v-row>
         </v-container>
@@ -30,12 +29,14 @@
 </template>
 <script>
 import CurrentDate from '@/components/Rate/CurrentDate'
+import CenterText from '@/components/Rate/CenterText'
 import Graph from '@/components/Rate/Graph'
 
 export default {
     name: 'Rate',
     components: {
         CurrentDate,
+        CenterText,
         Graph,
     },
     props: {
@@ -44,16 +45,6 @@ export default {
 }
 </script>
 <style scoped>
-p {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 48%;
-    margin: auto;
-    text-align: center;
-    transform: translateY(-60%); 
-}
-
 .card {
     height: 100%;
     width: 100%;

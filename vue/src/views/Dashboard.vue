@@ -20,7 +20,7 @@
                     sm="6"
                 >
                     <Task
-                        :task="this.task"
+                        :tasks="this.task"
                     ></Task>
                 </v-col>
             </v-row>

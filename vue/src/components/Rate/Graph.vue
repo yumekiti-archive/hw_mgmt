@@ -24,11 +24,12 @@ export default {
                 rotation: -0.5 * Math.PI,
                 cutoutPercentage: 65,
                 title: {
-                    display: true,
+                    display: false,
                     text: 'ALL TASK',
                     position: 'bottom',
                 },
                 legend: {
+                    display: false,
                     position: 'bottom',
                     onClick: null,
                 },
