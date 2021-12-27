@@ -30,7 +30,7 @@ export default {
                 },
                 legend: {
                     position: 'bottom',
-                    onClick: () => {return false},
+                    onClick: null,
                 },
             }
         }

@@ -63,7 +63,7 @@ p {
     position: absolute;
     left: 0;
     right: 0;
-    top: 50%;
+    top: 48%;
     margin: auto;
     text-align: center;
     transform: translateY(-60%); 
