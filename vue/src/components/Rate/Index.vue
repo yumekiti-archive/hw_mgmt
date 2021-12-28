@@ -24,18 +24,16 @@
                     ></CenterText>
                 </v-col>
             </v-row>
-            <v-row>
-                <v-col cols="12" md="4" class="d-flex justify-center align-center" v-for="(label, index) in labels" :key="index">
-                    <v-icon class="mb-1 mr-3" :color="label.color">mdi-checkbox-blank-circle</v-icon>
-                    <span>{{label.title}} - {{rate[label.data]}}</span>
-                </v-col>
-            </v-row>
+            <Label
+                :rate="this.rate"
+            ></Label>
         </v-container>
     </v-card>
 </template>
 <script>
 import CurrentDate from '@/components/Rate/CurrentDate'
 import CenterText from '@/components/Rate/CenterText'
+import Label from '@/components/Rate/Label'
 import Graph from '@/components/Rate/Graph'
 
 export default {
@@ -43,20 +41,12 @@ export default {
     components: {
         CurrentDate,
         CenterText,
+        Label,
         Graph,
     },
     props: {
         rate: [],
     },
-    data: () => {
-        return {
-            labels: [
-                {title: 'Not Yet', color: 'grey', data: 'not'},
-                {title: 'Done', color: 'blue', data: 'achievement'},
-                {title: 'Today', color: 'green', data: 'today'},
-            ]
-        }
-    }
 }
 </script>
 <style scoped>
