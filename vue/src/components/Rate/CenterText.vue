@@ -1,8 +1,8 @@
 <template>
     <div>
         <p class="center-text">
-            <v-icon class="text-xl-h1 text-md-h3 text-sm-h6">mdi-calendar-check</v-icon><br>
-            <span class="text-xl-h1 text-md-h3 text-sm-h6">{{this.rate.achievement}} / {{this.rate.all}}</span>
+            <v-icon class="text-h4 text-xl-h1 text-md-h2">mdi-calendar-check</v-icon><br>
+            <span class="text-h4 text-xl-h1 text-md-h2">{{this.rate.achievement}} / {{this.rate.all}}</span>
         </p>
     </div>
 </template>
