@@ -18,7 +18,7 @@ class Task extends Model
     ];
 
     protected $hidden = [
-        'id', 'lesson_id', 'user_id', 'created_at', 'updated_at'
+        'lesson_id', 'user_id', 'created_at', 'updated_at'
     ];
 
     public function user()

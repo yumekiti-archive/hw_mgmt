@@ -7,8 +7,8 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col cols="12" class="d-flex justify-center align-center" v-for="(task, index) in this.tasks" :key="index">
-                    <v-card class="card d-flex">
+                <v-col cols="12" class="d-flex justify-center align-center" v-for="(task, index) in this.tasks.filter(task => !task.achievement)" :key="index">
+                    <v-card class="card d-flex" @click="achievement(task.id)">
                         <div class="color rounded"></div>
                         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
                             {{task.lesson.title}}
@@ -26,6 +26,12 @@ export default {
     name: 'Task',
     props: {
         tasks: []
+    },
+    methods: {
+        achievement(id = 0){
+            if(id === 0) return
+            this.$store.dispatch('today/achievement', {id: id})
+        },
     },
 }
 </script>

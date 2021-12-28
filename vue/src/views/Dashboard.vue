@@ -46,7 +46,7 @@ export default {
     },
     computed: {
         task(){
-            return this.$store.state.task.data
+            return this.$store.state.today.data
         },
         rate(){
             return this.$store.state.rate.data
@@ -61,7 +61,7 @@ export default {
         }).then(() => {
             this.rateData = true
         })
-            this.$store.dispatch('task/today')
+            this.$store.dispatch('today/get')
             this.$store.dispatch('user/get')
     },
 }
