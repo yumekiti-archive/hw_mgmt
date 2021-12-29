@@ -40,8 +40,8 @@ db:
 	$(dc) exec db /bin/sh
 
 .PHONY: vue
-nginx:
-	$(dc) exec nginx /bin/sh
+vue:
+	$(dc) exec vue /bin/sh
 
 .PHONY: php
 php:
