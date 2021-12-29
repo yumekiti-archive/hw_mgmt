@@ -20,7 +20,8 @@ export default {
         },
         async achievement({state}, {id}){
             await api.get('task/achievement/' + id).then(response => {
-                state.data.filter(task => task.id == response.data.id)[0] = response.data
+                state.data.splice(state.data.findIndex(task => task.id === response.data.id), 1, response.data)
+                this.dispatch('rate/get')
             })
         }
     },
