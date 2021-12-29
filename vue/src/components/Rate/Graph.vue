@@ -1,25 +1,15 @@
 <script>
-import { Doughnut } from 'vue-chartjs';
+import { Doughnut, mixins } from 'vue-chartjs';
 
 export default {
     extends: Doughnut,
+    mixins: [mixins.reactiveData],
     name: 'chart',
     props: {
-        done: Number,
-        not: Number,
-        today: Number,
+        rate: []
     },
-    data () {
+    data() {
         return {
-            data: {
-                labels: ['Today', 'Done', 'Not Yet'],
-                datasets: [
-                    {
-                        data: [this.today, this.done, this.not],
-                        backgroundColor: ['green', 'blue', 'grey'],
-                    },
-                ]
-            },
             options: {
                 rotation: -0.5 * Math.PI,
                 cutoutPercentage: 65,
@@ -36,8 +26,26 @@ export default {
             }
         }
     },
-    mounted () {
-        this.renderChart(this.data, this.options)
+    mounted() {
+        this.render()
+    },
+    methods: {
+        render(){
+            this.chartData = {
+                labels: ['Today', 'Done', 'Not Yet'],
+                datasets: [
+                    {
+                        data: [this.rate.today, this.rate.achievement, this.rate.not],
+                        backgroundColor: ['green', 'blue', 'grey'],
+                    },
+                ]
+            }
+        }
+    },
+    watch: {
+        rate(){
+            this.render()
+        }
     }
 }
 </script>

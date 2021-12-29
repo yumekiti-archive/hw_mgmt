@@ -15,9 +15,7 @@
                     <Graph
                         class="d-flex justify-center align-center"
                         style="width: 90%; height: 90%;"
-                        :not="this.rate.not"
-                        :done="this.rate.achievement"
-                        :today="this.rate.today"
+                        :rate="this.rate"
                     ></Graph>
                     <CenterText
                         :rate="this.rate"
