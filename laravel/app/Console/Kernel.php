@@ -26,6 +26,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        // https://readouble.com/laravel/6.x/ja/scheduling.html
+        $schedule->command('command:add_tasks')->daily();
     }
 
     /**
