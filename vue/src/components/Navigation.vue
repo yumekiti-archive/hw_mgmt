@@ -63,11 +63,12 @@ export default {
             items: [
                 {title: 'Dashboard', icon: 'mdi-view-dashboard', url: '/'},
                 {title: 'Tasks', icon: 'mdi-checkbox-multiple-marked-outline', url: '/tasks'},
+                {title: 'Timetable', icon: 'mdi-timetable', url: '/timetable'},
                 {title: 'Users', icon: 'mdi-account-group-outline', url: '/users'},
             ],
             bottom: [
                 {title: 'My Account', icon: 'mdi-account-outline', url: '/user'},
-                {title: 'Settings', icon: 'mdi-cog-outline', url: '/setting'},
+                // {title: 'Settings', icon: 'mdi-cog-outline', url: '/setting'},
             ],
         }
     },

@@ -6,6 +6,7 @@ import users from '@/store/modules/users.js'
 import task from '@/store/modules/task.js'
 import rate from '@/store/modules/rate.js'
 import today from '@/store/modules/today.js'
+import timetable from '@/store/modules/timetable.js'
 
 Vue.use(Vuex)
 
@@ -22,5 +23,6 @@ export default new Vuex.Store({
         task,
         rate,
         today,
+        timetable,
     }
 })

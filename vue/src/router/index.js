@@ -6,6 +6,7 @@ import Tasks from '@/views/Tasks.vue'
 import Users from '@/views/Users.vue'
 import User from '@/views/User.vue'
 import Setting from '@/views/Setting.vue'
+import Timetable from '@/views/Timetable.vue'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,11 @@ const routes = [
         path: '/tasks',
         name: 'Tasks',
         component: Tasks
+    },
+    {
+        path: '/timetable',
+        name: 'Timetable',
+        component: Timetable
     },
     {
         path: '/users',
