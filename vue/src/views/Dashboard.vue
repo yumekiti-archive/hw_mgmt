@@ -1,8 +1,5 @@
 <template>
     <div>
-        <Navigation
-            :user="this.user"
-        ></Navigation>
         <v-container>
             <p>Dashboard</p>
             <v-row>
@@ -28,7 +25,6 @@
     </div>
 </template>
 <script>
-import Navigation from '@/components/Navigation'
 import Rate from '@/components/Rate/Index'
 import Task from '@/components/Task/Index'
 
@@ -40,7 +36,6 @@ export default {
         }
     },
     components: {
-        Navigation,
         Rate,
         Task,
     },
@@ -51,9 +46,6 @@ export default {
         rate(){
             return this.$store.state.rate.data
         },
-        user(){
-            return this.$store.state.user.data
-        },
     },
     created() {
         new Promise((resolve) => {
@@ -61,8 +53,7 @@ export default {
         }).then(() => {
             this.rateData = true
         })
-            this.$store.dispatch('today/get')
-            this.$store.dispatch('user/get')
+        this.$store.dispatch('today/get')
     },
 }
 </script>
