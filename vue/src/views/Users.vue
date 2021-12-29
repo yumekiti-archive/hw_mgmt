@@ -14,12 +14,7 @@
 </template>
 <script>
 export default {
-    name: 'Tasks',
-    data: () => {
-        return {
-            rateData: false,
-        }
-    },
+    name: 'Users',
     computed: {
         users(){
             return this.$store.state.users.data

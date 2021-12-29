@@ -1,12 +1,12 @@
 <template>
     <div>
         <v-container>
-            <p>Tasks</p>
+            <p>Setting</p>
             <v-row>
                 <v-col
                     cols="12"
                 >
-                    {{this.task}}
+                    hoge
                 </v-col>
             </v-row>
         </v-container>
@@ -14,14 +14,6 @@
 </template>
 <script>
 export default {
-    name: 'Tasks',
-    computed: {
-        task(){
-            return this.$store.state.task.data
-        },
-    },
-    created() {
-        this.$store.dispatch('task/get')
-    },
+    name: 'Setting',
 }
 </script>

@@ -67,7 +67,7 @@ export default {
             ],
             bottom: [
                 {title: 'My Account', icon: 'mdi-account-outline', url: '/user'},
-                {title: 'Settings', icon: 'mdi-cog-outline', url: '/settings'},
+                {title: 'Settings', icon: 'mdi-cog-outline', url: '/setting'},
             ],
         }
     },
