@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Test from '../views/Test.vue'
 import Dashboard from '@/views/Dashboard.vue'
 import Tasks from '@/views/Tasks.vue'
+import Users from '@/views/Users.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
         path: '/tasks',
         name: 'Tasks',
         component: Tasks
+    },
+    {
+        path: '/users',
+        name: 'Users',
+        component: Users
     },
     {
         // 開発後消す
