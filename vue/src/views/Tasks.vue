@@ -7,7 +7,7 @@
                     cols="12"
                     sm="6"
                 >
-                    date
+                    <Calendar></Calendar>
                 </v-col>
                 <v-col
                     cols="12"
@@ -23,11 +23,13 @@
 </template>
 <script>
 import Task from '@/components/Task/Index'
+import Calendar from '@/components/Calendar'
 
 export default {
     name: 'Tasks',
     components: {
         Task,
+        Calendar,
     },
     computed: {
         task(){
