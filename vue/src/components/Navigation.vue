@@ -33,7 +33,7 @@
         </v-list>
         
         <template v-slot:append>
-            <v-list>
+            <v-divider></v-divider>
                 <v-list-item
                     v-for="item in bottom"
                     :key="item.title"
@@ -48,7 +48,6 @@
                         <v-list-item-title>{{ item.title }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-            </v-list>
         </template>
     </v-navigation-drawer>
 </template>
