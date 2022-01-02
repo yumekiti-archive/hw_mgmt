@@ -32,7 +32,6 @@ export default {
         async date({commit}, {data}){
             await api.post('task/date', data).then(response => {
                 commit('set', response);
-                console.log(response.data);
             })
         }
     },

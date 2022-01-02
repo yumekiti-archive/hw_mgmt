@@ -17,6 +17,10 @@ class TaskController extends Controller
         return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with('lesson')->get();
     }
 
+    public function date(Request $request){
+        return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with('lesson')->get();
+    }
+
     public function rate(){
         $tasks = Auth::user()->tasks();
         $all = $tasks->count();
@@ -66,9 +70,5 @@ class TaskController extends Controller
     public function destory($id){
         Auth::user()->tasks()->findOrFail($id)->delete();
         return response()->noContent();
-    }
-
-    public function date(Request $request){
-        return $request->input('date');
     }
 }
