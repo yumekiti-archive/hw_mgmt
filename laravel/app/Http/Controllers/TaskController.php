@@ -21,6 +21,10 @@ class TaskController extends Controller
         return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with('lesson')->get();
     }
 
+    public function events(){
+        return Auth::user()->tasks()->where('achievement', '=', false)->get('created_at');
+    }
+
     public function rate(){
         $tasks = Auth::user()->tasks();
         $all = $tasks->count();

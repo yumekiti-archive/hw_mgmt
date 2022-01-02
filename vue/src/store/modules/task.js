@@ -4,10 +4,14 @@ export default {
     namespaced:true,
     state: {
         data: [],
+        events: [],
     },
     mutations: {
         set: (state, response) => {
             state.data = response.data;
+        },
+        setEvents: (state, response) => {
+            state.events = response.data;
         },
     },
     getters: {
@@ -33,6 +37,11 @@ export default {
             await api.post('task/date', data).then(response => {
                 commit('set', response);
             })
-        }
+        },
+        async events({commit}){
+            await api.get('task/events').then(response => {
+                commit('setEvents', response);
+            })
+        },
     },
 }
