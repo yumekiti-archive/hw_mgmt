@@ -30,7 +30,7 @@ export default {
     methods: {
         achievement(id = 0){
             if(id === 0) return
-            this.$store.dispatch('today/achievement', {id: id})
+            this.$store.dispatch('task/achievement', {id: id})
         },
     },
 }

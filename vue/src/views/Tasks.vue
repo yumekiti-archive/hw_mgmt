@@ -37,7 +37,7 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('task/get')
+        this.$store.dispatch('task/today')
     },
 }
 </script>

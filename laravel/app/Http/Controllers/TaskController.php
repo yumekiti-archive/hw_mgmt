@@ -67,4 +67,8 @@ class TaskController extends Controller
         Auth::user()->tasks()->findOrFail($id)->delete();
         return response()->noContent();
     }
+
+    public function date(Request $request){
+        return $request->input('date');
+    }
 }
