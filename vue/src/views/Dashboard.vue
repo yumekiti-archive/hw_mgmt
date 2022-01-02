@@ -17,7 +17,7 @@
                     sm="6"
                 >
                     <Task
-                        :tasks="this.task"
+                        :tasks="this.task.filter(task => !task.achievement)"
                     ></Task>
                 </v-col>
             </v-row>
