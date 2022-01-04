@@ -6,13 +6,12 @@
                 <v-col
                     cols="12"
                 >
-                    <v-sheet height="800">
+                    <v-sheet v-resize="onResize" :style="style">
                         <v-calendar
                             ref="calendar"
                             type="week"
                             :weekdays="weekday"
                         ></v-calendar>
-                        {{this.timetable}}
                     </v-sheet>
                 </v-col>
             </v-row>
@@ -20,23 +19,43 @@
     </div>
 </template>
 <script>
+const toDoubleDigits = (num) => {
+    num += "";
+    if (num.length === 1) {
+        num = "0" + num;
+    }
+    return num;     
+};
+
 export default {
     name: 'Timetable',
     data: () => {
         return {
             weekday: [1, 2, 3, 4, 5],
+            height: 0,
         }
+    },
+    methods: {
+        onResize() {
+            this.height = window.innerHeight
+        },
     },
     computed: {
         timetable(){
             return this.$store.state.timetable.data
+        },
+        style() {
+            return 'height: ' + this.height * 0.85 + 'px;'
         },
     },
     created() {
         this.$store.dispatch('timetable/get')
     },
     mounted() {
-        this.$refs.calendar.scrollToTime('08:00')
+        var now = new Date(); 
+        var hour = toDoubleDigits(now.getHours())
+        var min = toDoubleDigits(now.getMinutes())
+        this.$refs.calendar.scrollToTime(hour + ':' + min)
     },
 }
 </script>
