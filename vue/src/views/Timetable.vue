@@ -10,6 +10,8 @@
                         <v-calendar
                             ref="calendar"
                             type="week"
+                            color="primary"
+                            :events="events"
                             :weekdays="weekday"
                         ></v-calendar>
                     </v-sheet>
@@ -31,6 +33,7 @@ export default {
     name: 'Timetable',
     data: () => {
         return {
+            events: [],
             weekday: [1, 2, 3, 4, 5],
             height: 0,
         }
@@ -56,6 +59,13 @@ export default {
         var hour = toDoubleDigits(now.getHours())
         var min = toDoubleDigits(now.getMinutes())
         this.$refs.calendar.scrollToTime(hour + ':' + min)
+
+        this.events.push({
+            name: 'hoge',
+            start: '2022-01-03 01:41:46',
+            end: '2022-01-03 02:41:46',
+            color: 'red',
+        })
     },
 }
 </script>
