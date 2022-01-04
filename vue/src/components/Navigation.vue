@@ -31,7 +31,7 @@
                 </v-list-item-content>
             </v-list-item>
         </v-list>
-        
+
         <template v-slot:append>
             <v-divider></v-divider>
                 <v-list-item
