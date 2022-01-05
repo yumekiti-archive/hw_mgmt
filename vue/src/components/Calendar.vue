@@ -1,17 +1,19 @@
 <template>
-    <!-- <v-date-picker
-        v-model="date"
-        :events="events"
-        :event-color="colors => colors ? 'red' : 'yellow'"
-        full-width
-        elevation="2"
-        @click:date="this.getDate"
-    ></v-date-picker> -->
-    <p>
-        {{this.tasks}}<br><br>
-        {{this.events}}<br><br>
-        {{this.colors}}<br><br>
-    </p>
+    <div>
+        <v-date-picker
+            v-model="date"
+            :events="events"
+            :event-color="colors => colors.flag ? 'red' : 'yellow'"
+            full-width
+            elevation="2"
+            @click:date="this.getDate"
+        ></v-date-picker>
+        <p>
+            {{this.tasks}}<br><br>
+            {{this.events}}<br><br>
+            {{this.colors}}<br><br>
+        </p>
+    </div>
 </template>
 <script>
 export default {
@@ -26,13 +28,16 @@ export default {
         },
         set(){
             this.events.forEach((event) => {
+                let date = null
                 let flag = false
                 this.tasks.forEach((task) => {
+                    date = task.created_at.substring(0, task.created_at.indexOf(" "))
                     if(task.created_at.indexOf(event) != -1 && task.achievement){
                         flag = true
+                        date = task.created_at.substring(0, task.created_at.indexOf(" "))
                     }
                 })
-                this.colors.push(flag)
+                this.colors.push({flag, date})
             })
         }
     },
