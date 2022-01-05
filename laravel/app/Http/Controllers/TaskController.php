@@ -22,7 +22,7 @@ class TaskController extends Controller
     }
 
     public function events(){
-        return Auth::user()->tasks()->get(['created_at', 'achievement']);
+        return Auth::user()->tasks()->where('achievement', '=', false)->get('created_at');
     }
 
     public function rate(){

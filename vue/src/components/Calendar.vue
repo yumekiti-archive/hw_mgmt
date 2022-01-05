@@ -1,45 +1,23 @@
 <template>
-    <div>
-        <v-date-picker
-            v-model="date"
-            :events="events"
-            :event-color="colors => colors.flag ? 'red' : 'yellow'"
-            full-width
-            elevation="2"
-            @click:date="this.getDate"
-        ></v-date-picker>
-        <p>
-            {{this.tasks}}<br><br>
-            {{this.events}}<br><br>
-            {{this.colors}}<br><br>
-        </p>
-    </div>
+    <v-date-picker
+        v-model="date"
+        :events="events"
+        event-color="red"
+        full-width
+        elevation="2"
+        @click:date="this.getDate"
+    ></v-date-picker>
 </template>
 <script>
 export default {
     name: 'Calendar',
     data: () => ({
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        colors: [],
     }),
     methods: {
         getDate(date){
             this.$store.dispatch('task/date', {data: {date: date}})
         },
-        set(){
-            this.events.forEach((event) => {
-                let date = null
-                let flag = false
-                this.tasks.forEach((task) => {
-                    date = task.created_at.substring(0, task.created_at.indexOf(" "))
-                    if(task.created_at.indexOf(event) != -1 && task.achievement){
-                        flag = true
-                        date = task.created_at.substring(0, task.created_at.indexOf(" "))
-                    }
-                })
-                this.colors.push({flag, date})
-            })
-        }
     },
     computed: {
         tasks(){
@@ -50,11 +28,7 @@ export default {
         },
     },
     created() {
-        new Promise((resolve) => {
-            resolve(this.$store.dispatch('task/events'))
-        }).then(() => {
-            this.set()
-        })
+        this.$store.dispatch('task/events')
     },
 }
 </script>
