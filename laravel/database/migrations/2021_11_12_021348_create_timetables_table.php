@@ -19,7 +19,7 @@ class CreateTimetablesTable extends Migration
             $table->integer('period');
             $table->date('start')->default('2022-00-00 00:00:00');
             $table->date('end')->default('2022-00-00 00:00:00');
-            $table->string('color');
+            $table->string('color')->default('white');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
