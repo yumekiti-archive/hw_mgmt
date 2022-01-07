@@ -16,6 +16,7 @@
                         ></v-calendar>
                     </v-sheet>
                 </v-col>
+                {{this.timetable}}
             </v-row>
         </v-container>
     </div>
