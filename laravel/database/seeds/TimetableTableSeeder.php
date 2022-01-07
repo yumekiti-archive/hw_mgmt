@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class TimetableTableSeeder extends Seeder
 {
@@ -24,8 +25,8 @@ class TimetableTableSeeder extends Seeder
             'week_count' => 1,
             'user_id' => 1,
             'lesson_id' => 1,
-            'start' =>  new DateTime(),
-            'end' => new DateTime(),
+            'start' =>  new Carbon('yesterday'),
+            'end' => new Carbon('yesterday'),
             'color' => 'red',
         ]);
     }

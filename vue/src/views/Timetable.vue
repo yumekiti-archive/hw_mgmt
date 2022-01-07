@@ -13,10 +13,11 @@
                             color="primary"
                             :events="events"
                             :weekdays="weekday"
+                            :event-ripple="false"
                         ></v-calendar>
                     </v-sheet>
                 </v-col>
-                {{this.timetable}}
+                {{events}}
             </v-row>
         </v-container>
     </div>
@@ -35,6 +36,7 @@ export default {
     data: () => {
         return {
             events: [],
+            calendar: false,
             weekday: [1, 2, 3, 4, 5],
             height: 0,
         }
@@ -63,7 +65,6 @@ export default {
                     end: data.end,
                     color: data.color,
                 })
-                console.log('hoge');
             });
         })
     },
