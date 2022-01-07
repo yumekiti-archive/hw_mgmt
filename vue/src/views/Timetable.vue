@@ -53,20 +53,25 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('timetable/get')
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('timetable/get'))
+        }).then(() => {
+            this.timetable.forEach(data => {
+                this.events.push({
+                    name: data.lesson.title,
+                    start: data.start,
+                    end: data.end,
+                    color: data.color,
+                })
+                console.log('hoge');
+            });
+        })
     },
     mounted() {
         var now = new Date(); 
         var hour = toDoubleDigits(now.getHours())
         var min = toDoubleDigits(now.getMinutes())
         this.$refs.calendar.scrollToTime(hour + ':' + min)
-
-        this.events.push({
-            name: 'hoge',
-            start: '2022-01-03 01:41:46',
-            end: '2022-01-03 02:41:46',
-            color: 'red',
-        })
     },
 }
 </script>

@@ -13,7 +13,6 @@ class TimetableTableSeeder extends Seeder
     {
         for($i = 1; $i < 5; $i++){
             DB::table('timetables')->insert([
-                'period' => 1,
                 'week_count' => $i,
                 'user_id' => 1,
                 'lesson_id' => $i,
@@ -22,11 +21,10 @@ class TimetableTableSeeder extends Seeder
             ]);
         }
         DB::table('timetables')->insert([
-            'period' => 2,
             'week_count' => 1,
             'user_id' => 1,
             'lesson_id' => 1,
-            'start' => new DateTime(),
+            'start' =>  new DateTime(),
             'end' => new DateTime(),
             'color' => 'red',
         ]);
