@@ -17,6 +17,8 @@ class TimetableTableSeeder extends Seeder
                 'week_count' => $i,
                 'user_id' => 1,
                 'lesson_id' => $i,
+                'start' => new DateTime(),
+                'end' => new DateTime(),
             ]);
         }
         DB::table('timetables')->insert([
@@ -24,6 +26,9 @@ class TimetableTableSeeder extends Seeder
             'week_count' => 1,
             'user_id' => 1,
             'lesson_id' => 1,
+            'start' => new DateTime(),
+            'end' => new DateTime(),
+            'color' => 'red',
         ]);
     }
 }

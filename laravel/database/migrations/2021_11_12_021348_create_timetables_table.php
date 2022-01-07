@@ -17,8 +17,8 @@ class CreateTimetablesTable extends Migration
             $table->bigIncrements('id')->unique();
             $table->integer('week_count');
             $table->integer('period');
-            $table->date('start')->default('2022-00-00 00:00:00');
-            $table->date('end')->default('2022-00-00 00:00:00');
+            $table->date('start');
+            $table->date('end');
             $table->string('color')->default('white');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
