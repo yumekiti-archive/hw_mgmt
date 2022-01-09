@@ -31,6 +31,7 @@ export default {
             await api.get('task/achievement/' + id).then(response => {
                 state.data.splice(state.data.findIndex(task => task.id === response.data.id), 1, response.data)
                 this.dispatch('rate/get')
+                this.dispatch('task/events')
             })
         },
         async date({commit}, {data}){

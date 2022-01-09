@@ -11,6 +11,7 @@
                     <Card
                         :id="task.id"
                         :title="task.lesson.title"
+                        :flag="task.achievement"
                     ></Card>
                 </v-col>
             </v-row>

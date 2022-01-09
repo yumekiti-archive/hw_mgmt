@@ -4,7 +4,8 @@
         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
             {{this.title}}
             <v-spacer></v-spacer>
-            <v-icon class="mr-5">mdi-check-bold</v-icon>
+            <v-icon v-if="!flag" class="mr-5">mdi-check-bold</v-icon>
+            <v-icon v-else color="primary" class="mr-5">mdi-check-bold</v-icon>
         </v-container>
     </v-card>
 </template>
@@ -14,6 +15,7 @@ export default {
     props: {
         id: Number,
         title: String,
+        flag: Boolean,
     },
     methods: {
         achievement(id = 0){
