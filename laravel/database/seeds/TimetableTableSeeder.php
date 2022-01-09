@@ -12,13 +12,20 @@ class TimetableTableSeeder extends Seeder
      */
     public function run()
     {
+        $start = array(
+            '09:15:00', '11:00:00', '13:30:00', '15:15:00'
+        );
+        $end = array(
+            '10:45:00', '12:30:00', '15:00:00', '16:45:00'
+        );
+
         for($i = 1; $i < 5; $i++){
             DB::table('timetables')->insert([
                 'week_count' => $i,
                 'user_id' => 1,
                 'lesson_id' => $i,
-                'start' => new DateTime(),
-                'end' => new DateTime(),
+                'start' => date("Y-m-d ") . $start[($i - 1)],
+                'end' => date("Y-m-d ") . $end[($i - 1)],
             ]);
         }
         DB::table('timetables')->insert([

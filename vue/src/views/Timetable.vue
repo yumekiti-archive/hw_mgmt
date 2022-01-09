@@ -8,16 +8,18 @@
                 >
                     <v-sheet v-resize="onResize" :style="style">
                         <v-calendar
+                            first-interval="8"
+                            interval-height="200"
                             ref="calendar"
                             type="week"
                             color="primary"
                             :events="events"
                             :weekdays="weekday"
                             :event-ripple="false"
+                            :short-intervals="false"
                         ></v-calendar>
                     </v-sheet>
                 </v-col>
-                {{events}}
             </v-row>
         </v-container>
     </div>
