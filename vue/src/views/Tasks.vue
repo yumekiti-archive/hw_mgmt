@@ -18,18 +18,27 @@
                     ></Task>
                 </v-col>
             </v-row>
+            <v-row>
+                <v-col
+                    cols="12"
+                >
+                    <Lessons></Lessons>
+                </v-col>
+            </v-row>
         </v-container>
     </div>
 </template>
 <script>
 import Task from '@/components/Task/Index'
 import Calendar from '@/components/Calendar'
+import Lessons from '@/components/Lessons'
 
 export default {
     name: 'Tasks',
     components: {
         Task,
         Calendar,
+        Lessons,
     },
     computed: {
         task(){
