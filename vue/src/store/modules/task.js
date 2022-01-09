@@ -5,6 +5,7 @@ export default {
     state: {
         data: [],
         events: [],
+        histories: [],
     },
     mutations: {
         set: (state, response) => {
@@ -12,6 +13,9 @@ export default {
         },
         setEvents: (state, response) => {
             state.events = response.data;
+        },
+        setHistories: (state, response) => {
+            state.histories = response.data;
         },
     },
     getters: {
@@ -42,6 +46,11 @@ export default {
         async events({commit}){
             await api.get('task/events').then(response => {
                 commit('setEvents', response);
+            })
+        },
+        async Histories({commit}){
+            await api.get('task/Histories').then(response => {
+                commit('setHistories', response);
             })
         },
     },
