@@ -17,7 +17,6 @@
                         ></v-calendar>
                     </v-sheet>
                 </v-col>
-                {{events}}
             </v-row>
         </v-container>
     </div>

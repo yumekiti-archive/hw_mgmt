@@ -5,7 +5,7 @@
             <v-row>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
                     <Rate                    
                         v-if="this.rateData"
@@ -14,7 +14,7 @@
                 </v-col>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
                     <Task
                         :tasks="this.task.filter(task => !task.achievement)"
