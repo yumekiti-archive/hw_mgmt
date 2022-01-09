@@ -4,8 +4,8 @@
         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
             {{this.title}}
             <v-spacer></v-spacer>
-            <v-icon v-if="!flag" class="mr-5">mdi-check-bold</v-icon>
-            <v-icon v-else color="primary" class="mr-5">mdi-check-bold</v-icon>
+            <v-icon v-if="!flag" color="primary" class="mr-5">mdi-check-bold</v-icon>
+            <v-icon v-else class="mr-5">mdi-check-bold</v-icon>
         </v-container>
     </v-card>
 </template>
