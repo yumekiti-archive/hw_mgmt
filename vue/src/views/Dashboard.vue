@@ -21,12 +21,20 @@
                     ></Task>
                 </v-col>
             </v-row>
+            <v-row>
+                <v-col
+                    cols="12"
+                >
+                    <History></History>
+                </v-col>
+            </v-row>
         </v-container>
     </div>
 </template>
 <script>
 import Rate from '@/components/Rate/Index'
 import Task from '@/components/Task/Index'
+import History from '@/components/History'
 
 export default {
     name: 'Dashboard',
@@ -38,6 +46,7 @@ export default {
     components: {
         Rate,
         Task,
+        History,
     },
     computed: {
         task(){
