@@ -36,6 +36,7 @@ export default {
                 state.data.splice(state.data.findIndex(task => task.id === response.data.id), 1, response.data)
                 this.dispatch('rate/get')
                 this.dispatch('task/events')
+                this.dispatch('task/histories')
             })
         },
         async date({commit}, {data}){

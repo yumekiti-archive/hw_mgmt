@@ -7,16 +7,25 @@
                 </v-col>
             </v-row>
             <v-row>
-                <v-col cols="12">
-                    {{tasks}}
+                <v-col cols="12" class="d-flex justify-center align-center" v-for="(task, index) in this.tasks" :key="index">
+                    <Card
+                        :id="task.id"
+                        :title="task.lesson.title"
+                        :flag="task.achievement"
+                    ></Card>
                 </v-col>
             </v-row>
         </v-container>
     </v-card>
 </template>
 <script>
+import Card from '@/components/Task/Card'
+
 export default {
     name: 'History',
+    components: {
+        Card,
+    },
     props: {
         tasks: [],
     }

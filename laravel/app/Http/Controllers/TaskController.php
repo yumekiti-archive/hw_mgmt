@@ -77,6 +77,6 @@ class TaskController extends Controller
     }
 
     public function histories(){
-        return Auth::user()->tasks()->latest('updated_at')->take(10)->get();
+        return Auth::user()->tasks()->latest('updated_at')->take(10)->with('lesson')->get();
     }
 }

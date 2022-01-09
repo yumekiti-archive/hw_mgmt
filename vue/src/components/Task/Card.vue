@@ -31,4 +31,9 @@ export default {
     height: 100%;
     background-color: rgb(23, 109, 185);
 }
+
+.card {
+    width: 100%;
+    height: 100%;
+}
 </style>
