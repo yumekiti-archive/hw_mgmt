@@ -25,7 +25,9 @@
                 <v-col
                     cols="12"
                 >
-                    <History></History>
+                    <History
+                        :tasks="this.histories"
+                    ></History>
                 </v-col>
             </v-row>
         </v-container>
@@ -55,6 +57,9 @@ export default {
         rate(){
             return this.$store.state.rate.data
         },
+        histories(){
+            return this.$store.state.task.histories
+        },
     },
     created() {
         new Promise((resolve) => {
@@ -63,6 +68,7 @@ export default {
             this.rateData = true
         })
         this.$store.dispatch('task/today')
+        this.$store.dispatch('task/histories')
     },
 }
 </script>

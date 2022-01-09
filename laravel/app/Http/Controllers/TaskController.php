@@ -75,4 +75,8 @@ class TaskController extends Controller
         Auth::user()->tasks()->findOrFail($id)->delete();
         return response()->noContent();
     }
+
+    public function histories(){
+        return Auth::user()->tasks()->latest('updated_at')->take(10)->get();
+    }
 }

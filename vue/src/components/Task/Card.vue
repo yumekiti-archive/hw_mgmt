@@ -15,7 +15,7 @@ export default {
     props: {
         id: Number,
         title: String,
-        flag: Boolean,
+        flag: null,
     },
     methods: {
         achievement(id = 0){

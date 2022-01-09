@@ -8,7 +8,7 @@
             </v-row>
             <v-row>
                 <v-col cols="12">
-                    <p>hoge</p>
+                    {{tasks}}
                 </v-col>
             </v-row>
         </v-container>
@@ -17,5 +17,8 @@
 <script>
 export default {
     name: 'History',
+    props: {
+        tasks: [],
+    }
 }
 </script>

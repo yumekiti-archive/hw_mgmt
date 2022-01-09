@@ -48,8 +48,8 @@ export default {
                 commit('setEvents', response);
             })
         },
-        async Histories({commit}){
-            await api.get('task/Histories').then(response => {
+        async histories({commit}){
+            await api.get('task/histories').then(response => {
                 commit('setHistories', response);
             })
         },
