@@ -24,7 +24,9 @@
                 <v-col
                     cols="12"
                 >
-                    <Lessons></Lessons>
+                    <Lessons
+                        :lessons="this.lessons"
+                    ></Lessons>
                 </v-col>
             </v-row>
         </v-container>
@@ -49,10 +51,14 @@ export default {
         events(){
             return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
         },
+        lessons(){
+            return this.$store.state.lesson.data
+        }
     },
     created() {
         this.$store.dispatch('task/today')
         this.$store.dispatch('event/get')
+        this.$store.dispatch('lesson/get')
     },
 }
 </script>

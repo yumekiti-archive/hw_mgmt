@@ -8,7 +8,7 @@
             </v-row>
             <v-row>
                 <v-col cols="12" v-for="(lesson, index) in this.lessons" :key="index">
-                    hoge
+                    {{lesson}}
                 </v-col>
             </v-row>
         </v-container>
