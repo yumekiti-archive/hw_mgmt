@@ -7,7 +7,7 @@ export default {
     },
     mutations: {
         set: (state, response) => {
-            state.data = response.data;
+            state.data = Array.from(new Set(response.data.map(timetable => timetable.lesson.title)))
         },
     },
     getters: {

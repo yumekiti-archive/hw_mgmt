@@ -23,7 +23,6 @@ class LessonTableSeeder extends Seeder
         foreach ($titles as $title) {
             DB::table('lessons')->insert([
             'title' => $title,
-            'limit' => new DateTime(),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime()
         ]);
