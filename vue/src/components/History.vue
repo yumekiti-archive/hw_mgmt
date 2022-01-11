@@ -3,7 +3,7 @@
         <v-container>
             <v-row>
                 <v-col cols="12">
-                    <span>history</span>
+                    <span>History</span>
                 </v-col>
             </v-row>
             <v-row>
