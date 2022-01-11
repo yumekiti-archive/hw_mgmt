@@ -17,6 +17,7 @@ class CreateInvitesTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('invite_user_id')->nullable()->default();
             $table->string('token')->uniqsue()->nullable();
+            $table->date('expired')->nullable();
         });
     }
 

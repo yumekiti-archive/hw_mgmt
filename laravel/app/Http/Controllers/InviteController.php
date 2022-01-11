@@ -28,10 +28,12 @@ class InviteController extends Controller
      */
     public function store(Request $request)
     {
+        $time = new Carbon(Carbon::now());
         $user = Auth::user();
         Auth::user()->create([
             'user_id' => Auth::user()->id,
             'token' => Str::random(80),
+            'expired' => dd($time->addminutes(5)),
         ]);
       
     }
@@ -76,27 +78,19 @@ class InviteController extends Controller
         return  $id;
     }
 
-    public function boot()
-    {
-        $this->registerPolicies();
-
-        Passport::routes();
-
-        Passport::refreshTokensExpireIn(now()->addDays(30));
-    }
-
     public function invite($token)
     {
         $invite = Invite()->where('token', '=', $token);
-        if($invite->firstOrFail()){
+        if($invite->firstOrFail() && now() <= Invite()->expired){
             $invite->update([
                 'invite_user_id' => Auth::user()->id,
                 'token' => null,
             ]);
-            Auth::user()->invites()->create([
+            return Auth::user()->invites()->create([
                 'user_id' => Auth::user()->id,
                 'invite_user_id' => $invite->user_id,
             ]);
         }
+        return response()->noContent();
     }
 }
