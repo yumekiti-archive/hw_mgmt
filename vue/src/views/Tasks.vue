@@ -7,7 +7,9 @@
                     cols="12"
                     md="6"
                 >
-                    <Calendar></Calendar>
+                    <Calendar
+                        :events="this.events"
+                    ></Calendar>
                 </v-col>
                 <v-col
                     cols="12"
@@ -44,9 +46,13 @@ export default {
         task(){
             return this.$store.state.task.data
         },
+        events(){
+            return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
+        },
     },
     created() {
         this.$store.dispatch('task/today')
+        this.$store.dispatch('event/get')
     },
 }
 </script>

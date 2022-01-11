@@ -4,18 +4,10 @@ export default {
     namespaced:true,
     state: {
         data: [],
-        events: [],
-        histories: [],
     },
     mutations: {
         set: (state, response) => {
             state.data = response.data;
-        },
-        setEvents: (state, response) => {
-            state.events = response.data;
-        },
-        setHistories: (state, response) => {
-            state.histories = response.data;
         },
     },
     getters: {
@@ -35,23 +27,13 @@ export default {
             await api.get('task/achievement/' + id).then(response => {
                 state.data.splice(state.data.findIndex(task => task.id === response.data.id), 1, response.data)
                 this.dispatch('rate/get')
-                this.dispatch('task/events')
-                this.dispatch('task/histories')
+                this.dispatch('event/get')
+                this.dispatch('history/get')
             })
         },
         async date({commit}, {data}){
             await api.post('task/date', data).then(response => {
                 commit('set', response);
-            })
-        },
-        async events({commit}){
-            await api.get('task/events').then(response => {
-                commit('setEvents', response);
-            })
-        },
-        async histories({commit}){
-            await api.get('task/histories').then(response => {
-                commit('setHistories', response);
             })
         },
     },

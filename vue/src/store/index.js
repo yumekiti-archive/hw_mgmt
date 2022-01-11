@@ -6,6 +6,8 @@ import users from '@/store/modules/users.js'
 import task from '@/store/modules/task.js'
 import rate from '@/store/modules/rate.js'
 import timetable from '@/store/modules/timetable.js'
+import event from '@/store/modules/event.js'
+import history from '@/store/modules/history.js'
 
 Vue.use(Vuex)
 
@@ -22,5 +24,7 @@ export default new Vuex.Store({
         task,
         rate,
         timetable,
+        event,
+        history,
     }
 })

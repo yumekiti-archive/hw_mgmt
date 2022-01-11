@@ -58,7 +58,7 @@ export default {
             return this.$store.state.rate.data
         },
         histories(){
-            return this.$store.state.task.histories
+            return this.$store.state.history.data
         },
     },
     created() {
@@ -68,7 +68,7 @@ export default {
             this.rateData = true
         })
         this.$store.dispatch('task/today')
-        this.$store.dispatch('task/histories')
+        this.$store.dispatch('history/get')
     },
 }
 </script>
