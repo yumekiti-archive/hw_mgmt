@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Invite;
-use App\User;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class InviteController extends Controller
 {
@@ -16,8 +17,7 @@ class InviteController extends Controller
     public function index()
     {
         //
-        $user = User::first();
-        return $user->Invites()->get();
+        return Auth::user()->invites()->get();
     }
 
     /**
@@ -29,6 +29,12 @@ class InviteController extends Controller
     public function store(Request $request)
     {
         //
+        $date = new Carbon('+3 minutes');
+        return Auth::user()->invites()->create([
+            'user_id' => Auth::user()->id,
+            'token' => Str::random(30),
+            'expired' => $date,
+        ]);
     }
 
     /**
@@ -37,9 +43,9 @@ class InviteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($token)
     {
-        //
+        return $token;
     }
 
     /**
@@ -69,4 +75,22 @@ class InviteController extends Controller
         delete();
         return  $id;
     }
+
+    public function invite($token)
+    {
+        $invite = Auth::user()->invites()->where('token', '=', $token);
+        if($invite->firstOrFail() && Carbon::now() -> diffMinutes($invite->firstOrFail()->expired) >= 0){
+             $invite->update([
+                 'invite_user_id' => Auth::user()->id,
+                 'token' => null,
+             ]);
+             return Auth::user()->invites()->create([
+                 'user_id' => Auth::user()->id,
+                 'invite_user_id' => $invite->user_id,
+             ]);
+         }
+        return response()->noContent();
+        //return Carbon::now()->diffInMinutes($invite->firstOrFail()->expired);
+    }
+
 }

@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function invites()
     {
-        return $this->hasMany(Invite::class,"user_id");
+        return $this->hasMany(Invite::class, "user_id");
     }
 
 }

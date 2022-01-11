@@ -15,8 +15,10 @@ class CreateInvitesTable extends Migration
     {
         Schema::create('invites', function (Blueprint $table) {
             $table->bigInteger('user_id');
-            $table->bigInteger('invite_user_id');
+            $table->bigInteger('invite_user_id')->default(0);
             $table->string('token')->uniqsue()->nullable();
+            $table->dateTime('expired')->nullable();
+            $table->timestamps();
         });
     }
 

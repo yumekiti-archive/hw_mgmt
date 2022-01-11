@@ -21,6 +21,13 @@ class UserTableSeeder extends Seeder
             'email' => 'test@test.jp',
             'password' => bcrypt('testtest')
         ]);
+        factory(User::class)->create([
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'name' => 'hoge',
+            'email' => 'hoge@hoge.jp',
+            'password' => bcrypt('hogehoge')
+        ]);
 
         $faker = Faker\Factory::create();
         # テストデータ挿入

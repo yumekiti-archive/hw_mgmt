@@ -58,5 +58,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //招待の処理
     Route::get('/invite', 'InviteController@index');
+    Route::get('/invite/{token}', 'InviteController@invite');
+    Route::post('/invite', 'InviteController@store');
+    Route::put('/invite/{hash}', 'InviteController@show');
     Route::delete('/invite/{id}', 'InviteController@destory');
 });
