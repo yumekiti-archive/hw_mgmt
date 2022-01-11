@@ -9,9 +9,7 @@
             <v-row>
                 <v-col cols="12" class="d-flex justify-center align-center" v-for="(task, index) in this.tasks" :key="index">
                     <Card
-                        :id="task.id"
-                        :title="task.lesson.title"
-                        :flag="task.achievement"
+                        :task="task"
                     ></Card>
                 </v-col>
             </v-row>

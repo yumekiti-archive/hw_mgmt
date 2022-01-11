@@ -1,10 +1,10 @@
 <template>
-    <v-card class="card d-flex" @click="achievement(id)">
+    <v-card class="card d-flex" @click="achievement(this.task.id)">
         <div class="color rounded"></div>
         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
-            {{this.title}}
+            {{this.task.lesson.title}} : {{this.task.created_at.substring(0, this.task.created_at.indexOf(" ")).substr(this.task.created_at.indexOf('-') + 1)}} ({{this.yobi[this.week]}})
             <v-spacer></v-spacer>
-            <v-icon v-if="!flag" color="primary" class="mr-5">mdi-check-bold</v-icon>
+            <v-icon v-if="!this.task.achievement" color="primary" class="mr-5">mdi-check-bold</v-icon>
             <v-icon v-else class="mr-5">mdi-check-bold</v-icon>
         </v-container>
     </v-card>
@@ -12,16 +12,23 @@
 <script>
 export default {
     Name: 'TaskCard',
+    data: () => {
+        return {
+            yobi: new Array("日","月","火","水","木","金","土"),
+            week: null,
+        }
+    },
     props: {
-        id: Number,
-        title: String,
-        flag: null,
+        task: []
     },
     methods: {
         achievement(id = 0){
             if(id === 0) return
             this.$store.dispatch('task/achievement', {id: id})
         },
+    },
+    created() {
+        this.week = new Date().getDay()
     },
 }
 </script>
