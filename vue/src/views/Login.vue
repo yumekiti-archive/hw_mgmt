@@ -89,12 +89,12 @@ a:hover {
 }
 
 form {
-    background:#fff;
+    background:#ddd;
     border-radius:6px;
     padding:20px;
     padding-top:30px;
     width:300px;
-    margin:50px auto;
+    margin:200px auto;
     box-shadow:10px 10px 0px rgba(0,0,0,.1);
 }
 
@@ -102,7 +102,7 @@ h1 {
     text-align:center;
     font-size:1.4em;
     font-weight:700;
-    color:#e9e9e9;
+    color:#000;
     margin-bottom:24px;
 }
 
