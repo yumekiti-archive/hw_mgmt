@@ -7,6 +7,7 @@
                     cols="12"
                 >
                     {{this.users}}
+                    <img src="https://www.civillink.net/sozai/hp.gif" height="300"><br>
                 </v-col>
             </v-row>
         </v-container>
