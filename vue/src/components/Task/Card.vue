@@ -1,5 +1,5 @@
 <template>
-    <v-card class="card d-flex" @click="achievement(this.task.id)">
+    <v-card class="card d-flex" @click="achievement(task.id)">
         <div class="color rounded"></div>
         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
             {{this.task.lesson.title}} : {{this.task.created_at.substring(0, this.task.created_at.indexOf(" ")).substr(this.task.created_at.indexOf('-') + 1)}} ({{this.yobi[this.week]}})
