@@ -28,8 +28,14 @@ class InviteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        Auth::user()->create([
+            'user_id' => Auth::user()->id,
+            'token' => Str::random(80),
+        ]);
+      
     }
+        
 
     /**
      * Display the specified resource.
@@ -37,9 +43,9 @@ class InviteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($token)
     {
-        //
+
     }
 
     /**
@@ -68,5 +74,29 @@ class InviteController extends Controller
         where('invite_user_id','=',$id)->
         delete();
         return  $id;
+    }
+
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Passport::routes();
+
+        Passport::refreshTokensExpireIn(now()->addDays(30));
+    }
+
+    public function invite($token)
+    {
+        $invite = Invite()->where('token', '=', $token);
+        if($invite->firstOrFail()){
+            $invite->update([
+                'invite_user_id' => Auth::user()->id,
+                'token' => null,
+            ]);
+            Auth::user()->invites()->create([
+                'user_id' => Auth::user()->id,
+                'invite_user_id' => $invite->user_id,
+            ]);
+        }
     }
 }
