@@ -34,7 +34,6 @@ class TimetableTableSeeder extends Seeder
             'lesson_id' => 1,
             'start' =>  new Carbon('yesterday'),
             'end' => new Carbon('yesterday'),
-            'color' => 'red',
         ]);
     }
 }

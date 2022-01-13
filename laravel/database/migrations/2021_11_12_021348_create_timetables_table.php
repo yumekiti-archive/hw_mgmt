@@ -18,7 +18,6 @@ class CreateTimetablesTable extends Migration
             $table->integer('week_count');
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->string('color')->default('blue');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
