@@ -65,7 +65,7 @@ export default {
                     name: data.lesson.title,
                     start: data.start,
                     end: data.end,
-                    color: data.color,
+                    color: data.lesson_color.color,
                 })
             });
         })

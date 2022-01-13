@@ -18,7 +18,7 @@ class CreateLessonColorsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('lesson_id');
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
-            $table->string('color')->default('white');
+            $table->string('color')->default('blue');
 
             //複合主キー
             $table->primary(['user_id', 'lesson_id']);
