@@ -35,7 +35,7 @@
 <script>
 import Task from '@/components/Task/Index'
 import Calendar from '@/components/Calendar'
-import Lessons from '@/components/Lessons'
+import Lessons from '@/components/Lesson/Index'
 
 export default {
     name: 'Tasks',
@@ -52,7 +52,7 @@ export default {
             return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
         },
         lessons(){
-            return this.$store.state.lesson.data
+            return this.$store.state.lesson.data.filter( (element, index, self) => self.findIndex(e => e.lesson_color.lesson_id === element.lesson_color.lesson_id) === index)
         }
     },
     created() {

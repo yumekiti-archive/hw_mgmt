@@ -8,15 +8,20 @@
             </v-row>
             <v-row>
                 <v-col cols="12" v-for="(lesson, index) in this.lessons" :key="index">
-                    {{lesson}}
+                    <Card :lesson="lesson" />
                 </v-col>
             </v-row>
         </v-container>
     </v-card>
 </template>
 <script>
+import Card from '@/components/Lesson/Card'
+
 export default {
     name: 'Lessons',
+    components: {
+        Card,
+    },
     props: {
         lessons: []
     },
