@@ -14,7 +14,8 @@ class InviteTableSeeder extends Seeder
         DB::table('invites')->insert([
             'user_id' => 1,
             'invite_user_id' => 2,
-            'token' => 'hogehoge'
+            'token' => 'hogehoge',
+            'date' => new DateTime,
         ]);
     }
 }

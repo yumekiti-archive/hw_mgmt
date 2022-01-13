@@ -14,9 +14,17 @@ class CreateInvitesTable extends Migration
     public function up()
     {
         Schema::create('invites', function (Blueprint $table) {
-            $table->bigInteger('user_id');
-            $table->bigInteger('invite_user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('invite_user_id');
+            $table->foreign('invite_user_id')->references('id')->on('users')->onDelete('cascade');
+
+            // とけん。
             $table->string('token')->uniqsue()->nullable();
+            $table->date('expiry');
+
+            //複合主キー
+            $table->primary(['user_id', 'invite_user_id']);
         });
     }
 
