@@ -14,8 +14,14 @@ class CreateLessonColorsTable extends Migration
     public function up()
     {
         Schema::create('lesson_colors', function (Blueprint $table) {
-            $table->bigIncrements('lesson_id');
-            $table->timestamps();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('lesson_id');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->string('color')->default('white');
+
+            //複合主キー
+            $table->primary(['user_id', 'lesson_id']);
         });
     }
 

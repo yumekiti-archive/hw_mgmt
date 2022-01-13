@@ -18,8 +18,6 @@ class CreateInvitesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('invite_user_id');
             $table->foreign('invite_user_id')->references('id')->on('users')->onDelete('cascade');
-
-            // とけん。
             $table->string('token')->uniqsue()->nullable();
             $table->date('expiry');
 

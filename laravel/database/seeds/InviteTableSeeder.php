@@ -15,7 +15,7 @@ class InviteTableSeeder extends Seeder
             'user_id' => 1,
             'invite_user_id' => 2,
             'token' => 'hogehoge',
-            'date' => new DateTime,
+            'expiry' => new DateTime(),
         ]);
     }
 }
