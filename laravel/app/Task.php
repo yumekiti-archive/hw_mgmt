@@ -31,4 +31,8 @@ class Task extends Model
         return $this->hasOne(Lesson::class, 'id', 'lesson_id');
     }
 
+    public function lesson_color()
+    {
+        return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
+    }
 }
