@@ -35,10 +35,10 @@
 <script>
 import Task from '@/components/Task/Index'
 import Calendar from '@/components/Calendar'
-import Lessons from '@/components/Lesson/Index'
+import Lessons from '@/components/Lessons/Index'
 
 export default {
-    name: 'Tasks',
+    name: 'TasksView',
     components: {
         Task,
         Calendar,
@@ -52,10 +52,13 @@ export default {
             return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
         },
         lessons(){
-            return this.$store.state.lesson.data.filter( (element, index, self) => self.findIndex(e => e.lesson_color.lesson_id === element.lesson_color.lesson_id) === index)
+            return this.$store.state.lesson.data.filter((element, index, self) => self.findIndex(e => e.lesson_color.lesson_id === element.lesson_color.lesson_id) === index)
         }
     },
     created() {
+        this.$store.state.task.data = []
+        this.$store.state.event.data = []
+        this.$store.state.lesson.data = []
         this.$store.dispatch('task/today')
         this.$store.dispatch('event/get')
         this.$store.dispatch('lesson/get')

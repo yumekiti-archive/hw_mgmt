@@ -34,7 +34,7 @@ const toDoubleDigits = (num) => {
 };
 
 export default {
-    name: 'Timetable',
+    name: 'TimetableView',
     data: () => {
         return {
             events: [],

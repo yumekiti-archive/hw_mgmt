@@ -17,7 +17,7 @@ class TaskTableSeeder extends Seeder
         for($i = 1; $i <= 4; $i++){
             DB::table('tasks')->insert([
                 'detail' => "テスト" . $i,
-                'lesson_id' => 1,
+                'lesson_id' => $i,
                 'user_id' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime()
