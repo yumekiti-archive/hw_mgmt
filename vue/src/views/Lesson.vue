@@ -1,12 +1,19 @@
 <template>
     <div>
         <p>Lesson</p>
-        {{this.lesson}}
+        <Lesson
+            :lesson="this.lesson"
+        ></Lesson>
     </div>
 </template>
 <script>
+import Lesson from '@/components/Lesson/Index'
+
 export default {
-    name: 'Lesson',
+    name: 'LessonView',
+    components: {
+        Lesson,
+    },
     computed: {
         lesson(){
             return this.$store.state.lesson.data

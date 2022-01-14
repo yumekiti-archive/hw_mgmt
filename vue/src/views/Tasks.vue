@@ -38,7 +38,7 @@ import Calendar from '@/components/Calendar'
 import Lessons from '@/components/Lessons/Index'
 
 export default {
-    name: 'Tasks',
+    name: 'TasksView',
     components: {
         Task,
         Calendar,

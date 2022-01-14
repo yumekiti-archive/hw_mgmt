@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-    name: 'User',
+    name: 'UserView',
     computed: {
         user(){
             return this.$store.state.user.data

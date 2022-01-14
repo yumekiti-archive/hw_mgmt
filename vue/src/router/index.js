@@ -15,42 +15,42 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        name: 'Dashboard',
+        name: 'DashboardView',
         component: Dashboard
     },
     {
         path: '/tasks',
-        name: 'Tasks',
+        name: 'TasksView',
         component: Tasks
     },
     {
         path: '/timetable',
-        name: 'Timetable',
+        name: 'TimetableView',
         component: Timetable
     },
     {
         path: '/users',
-        name: 'Users',
+        name: 'UsersView',
         component: Users
     },
     {
         path: '/user',
-        name: 'User',
+        name: 'UserView',
         component: User
     },
     {
         path: '/setting',
-        name: 'Setting',
+        name: 'SettingView',
         component: Setting
     },
     {
         path: '/login',
-        name: 'Login',
+        name: 'LoginView',
         component: Login
     },
     {
         path: '/lesson/:id',
-        name: 'Lesson',
+        name: 'LessonView',
         component: Lesson
     },
     {
