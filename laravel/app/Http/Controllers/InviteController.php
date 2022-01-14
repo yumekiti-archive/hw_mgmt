@@ -79,7 +79,7 @@ class InviteController extends Controller
     public function invite($token)
     {
         $invite = Auth::user()->invites()->where('token', '=', $token);
-        if($invite->firstOrFail() && Carbon::now() -> diffMinutes($invite->firstOrFail()->expired) >= 0){
+        if($invite->firstOrFail() && Carbon::now()->diffInMinutes($invite->firstOrFail()->expired) > 0){
              $invite->update([
                  'invite_user_id' => Auth::user()->id,
                  'token' => null,
@@ -88,6 +88,7 @@ class InviteController extends Controller
                  'user_id' => Auth::user()->id,
                  'invite_user_id' => $invite->user_id,
              ]);
+             
          }
         return response()->noContent();
         //return Carbon::now()->diffInMinutes($invite->firstOrFail()->expired);

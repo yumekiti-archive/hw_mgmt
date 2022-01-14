@@ -5,7 +5,7 @@
             <v-row>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
                     <Rate                    
                         v-if="this.rateData"
@@ -14,11 +14,20 @@
                 </v-col>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
                     <Task
                         :tasks="this.task.filter(task => !task.achievement)"
                     ></Task>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col
+                    cols="12"
+                >
+                    <History
+                        :tasks="this.histories"
+                    ></History>
                 </v-col>
             </v-row>
         </v-container>
@@ -27,6 +36,7 @@
 <script>
 import Rate from '@/components/Rate/Index'
 import Task from '@/components/Task/Index'
+import History from '@/components/History'
 
 export default {
     name: 'Dashboard',
@@ -38,6 +48,7 @@ export default {
     components: {
         Rate,
         Task,
+        History,
     },
     computed: {
         task(){
@@ -45,6 +56,9 @@ export default {
         },
         rate(){
             return this.$store.state.rate.data
+        },
+        histories(){
+            return this.$store.state.history.data
         },
     },
     created() {
@@ -54,6 +68,7 @@ export default {
             this.rateData = true
         })
         this.$store.dispatch('task/today')
+        this.$store.dispatch('history/get')
     },
 }
 </script>

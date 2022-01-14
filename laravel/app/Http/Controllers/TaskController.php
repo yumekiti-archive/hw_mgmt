@@ -10,15 +10,15 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return Auth::user()->tasks()->with('lesson')->get();
+        return Auth::user()->tasks()->with(['lesson', 'lesson_color'])->get();
     }
 
     public function today(){
-        return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with('lesson')->get();
+        return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with(['lesson', 'lesson_color'])->get();
     }
 
     public function date(Request $request){
-        return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with('lesson')->get();
+        return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with(['lesson', 'lesson_color'])->get();
     }
 
     public function events(){
@@ -43,7 +43,7 @@ class TaskController extends Controller
     }
 
     public function achievement($id){
-        $task = Auth::user()->tasks()->with('lesson')->findOrFail($id);
+        $task = Auth::user()->tasks()->with(['lesson', 'lesson_color'])->findOrFail($id);
         $task->update([
             'achievement' => $task->achievement = !$task->achievement
         ]);
@@ -74,5 +74,9 @@ class TaskController extends Controller
     public function destory($id){
         Auth::user()->tasks()->findOrFail($id)->delete();
         return response()->noContent();
+    }
+
+    public function histories(){
+        return Auth::user()->tasks()->latest('updated_at')->take(10)->with(['lesson', 'lesson_color'])->get();
     }
 }

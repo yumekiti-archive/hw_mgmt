@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class TimetableTableSeeder extends Seeder
 {
@@ -11,24 +12,19 @@ class TimetableTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i < 5; $i++){
-            DB::table('timetables')->insert([
-                'period' => 1,
-                'week_count' => $i,
-                'user_id' => 1,
-                'lesson_id' => $i,
-                'start' => new DateTime(),
-                'end' => new DateTime(),
-            ]);
-        }
+        $start = array(
+            '09:15:00', '11:00:00', '13:30:00', '15:15:00'
+        );
+        $end = array(
+            '10:45:00', '12:30:00', '15:00:00', '16:45:00'
+        );
+
         DB::table('timetables')->insert([
-            'period' => 2,
             'week_count' => 1,
             'user_id' => 1,
             'lesson_id' => 1,
-            'start' => new DateTime(),
-            'end' => new DateTime(),
-            'color' => 'red',
+            'start' =>  new Carbon('yesterday'),
+            'end' => new Carbon('yesterday'),
         ]);
     }
 }

@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Timetable;
 use App\User;
 use App\Lesson;
+use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
     //
     public function index(Request $request)
     {
-        return Lesson::all();
+        // 考えたくないのでフロントで実装した。
+        return Auth::user()->timetables()->with(['lesson', 'lesson_color'])->get();
     }
 
     public function store(Request $request)

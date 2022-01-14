@@ -26,4 +26,9 @@ class Lesson extends Model
         return $this->hasMany(Lesson::class,"lesson_id");
     }
 
+    public function lesson_color()
+    {
+        return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
+    }
+
 }

@@ -8,11 +8,15 @@
                 >
                     <v-sheet v-resize="onResize" :style="style">
                         <v-calendar
+                            first-interval="8"
+                            interval-height="200"
                             ref="calendar"
                             type="week"
                             color="primary"
                             :events="events"
                             :weekdays="weekday"
+                            :event-ripple="false"
+                            :short-intervals="false"
                         ></v-calendar>
                     </v-sheet>
                 </v-col>
@@ -34,6 +38,7 @@ export default {
     data: () => {
         return {
             events: [],
+            calendar: false,
             weekday: [1, 2, 3, 4, 5],
             height: 0,
         }
@@ -52,20 +57,24 @@ export default {
         },
     },
     created() {
-        this.$store.dispatch('timetable/get')
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('timetable/get'))
+        }).then(() => {
+            this.timetable.forEach(data => {
+                this.events.push({
+                    name: data.lesson.title,
+                    start: data.start,
+                    end: data.end,
+                    color: data.lesson_color.color,
+                })
+            });
+        })
     },
     mounted() {
         var now = new Date(); 
         var hour = toDoubleDigits(now.getHours())
         var min = toDoubleDigits(now.getMinutes())
         this.$refs.calendar.scrollToTime(hour + ':' + min)
-
-        this.events.push({
-            name: 'hoge',
-            start: '2022-01-03 01:41:46',
-            end: '2022-01-03 02:41:46',
-            color: 'red',
-        })
     },
 }
 </script>

@@ -7,6 +7,7 @@ import Users from '@/views/Users.vue'
 import User from '@/views/User.vue'
 import Setting from '@/views/Setting.vue'
 import Timetable from '@/views/Timetable.vue'
+import Login from '@/views/Login.vue'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,11 @@ const routes = [
         path: '/setting',
         name: 'Setting',
         component: Setting
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
     },
     {
         // 開発後消す

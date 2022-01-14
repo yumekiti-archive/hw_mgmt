@@ -1,9 +1,9 @@
 <template>
-    <v-card class="card">
+    <v-card>
         <v-container>
             <v-row>
-                <v-col cols="12" class="d-flex">
-                    <span>Task</span>
+                <v-col cols="12">
+                    <span>History</span>
                 </v-col>
             </v-row>
             <v-row>
@@ -20,18 +20,12 @@
 import Card from '@/components/Task/Card'
 
 export default {
-    name: 'Task',
+    name: 'History',
     components: {
         Card,
     },
     props: {
-        tasks: []
+        tasks: [],
     },
 }
 </script>
-<style scoped>
-.card {
-    height: 100%;
-    width: 100%;
-}
-</style>

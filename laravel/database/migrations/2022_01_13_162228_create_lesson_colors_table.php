@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvitesTable extends Migration
+class CreateLessonColorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateInvitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('invites', function (Blueprint $table) {
-
+        Schema::create('lesson_colors', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('invite_user_id');
-            $table->foreign('invite_user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('token')->uniqsue()->nullable();
-            $table->datetime('expiry');
+            $table->unsignedBigInteger('lesson_id');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->string('color')->default('blue');
 
             //複合主キー
-            $table->primary(['user_id', 'invite_user_id']);
+            $table->primary(['user_id', 'lesson_id']);
         });
     }
 
@@ -34,6 +32,6 @@ class CreateInvitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invites');
+        Schema::dropIfExists('lesson_colors');
     }
 }

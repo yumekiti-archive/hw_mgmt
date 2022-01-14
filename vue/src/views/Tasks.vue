@@ -5,17 +5,28 @@
             <v-row>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
-                    <Calendar></Calendar>
+                    <Calendar
+                        :events="this.events"
+                    ></Calendar>
                 </v-col>
                 <v-col
                     cols="12"
-                    sm="6"
+                    md="6"
                 >
                     <Task
                         :tasks="this.task"
                     ></Task>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col
+                    cols="12"
+                >
+                    <Lessons
+                        :lessons="this.lessons"
+                    ></Lessons>
                 </v-col>
             </v-row>
         </v-container>
@@ -24,20 +35,30 @@
 <script>
 import Task from '@/components/Task/Index'
 import Calendar from '@/components/Calendar'
+import Lessons from '@/components/Lesson/Index'
 
 export default {
     name: 'Tasks',
     components: {
         Task,
         Calendar,
+        Lessons,
     },
     computed: {
         task(){
             return this.$store.state.task.data
         },
+        events(){
+            return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
+        },
+        lessons(){
+            return this.$store.state.lesson.data.filter( (element, index, self) => self.findIndex(e => e.lesson_color.lesson_id === element.lesson_color.lesson_id) === index)
+        }
     },
     created() {
         this.$store.dispatch('task/today')
+        this.$store.dispatch('event/get')
+        this.$store.dispatch('lesson/get')
     },
 }
 </script>

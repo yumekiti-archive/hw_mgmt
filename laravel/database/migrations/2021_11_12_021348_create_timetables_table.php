@@ -16,10 +16,8 @@ class CreateTimetablesTable extends Migration
         Schema::create('timetables', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->integer('week_count');
-            $table->integer('period');
-            $table->date('start');
-            $table->date('end');
-            $table->string('color')->default('white');
+            $table->dateTime('start');
+            $table->dateTime('end');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
