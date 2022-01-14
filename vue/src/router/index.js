@@ -8,6 +8,7 @@ import User from '@/views/User.vue'
 import Setting from '@/views/Setting.vue'
 import Timetable from '@/views/Timetable.vue'
 import Login from '@/views/Login.vue'
+import Lesson from '@/views/Lesson.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,11 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: '/lesson/:id',
+        name: 'Lesson',
+        component: Lesson
     },
     {
         // 開発後消す
