@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\Task as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Task extends Model
 {
@@ -34,5 +35,18 @@ class Task extends Model
     public function lesson_color()
     {
         return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
+    }
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->{$model->getKeyName()} = (string) Str::orderedUuid();
+        });
     }
 }

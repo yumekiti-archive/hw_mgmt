@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\User;
 
 class TaskTableSeeder extends Seeder
 {
@@ -15,29 +16,27 @@ class TaskTableSeeder extends Seeder
     {
         //
         for($i = 1; $i <= 4; $i++){
-            DB::table('tasks')->insert([
+            User::find(1)->tasks()->create([
                 'detail' => "テスト" . $i,
                 'lesson_id' => $i,
                 'user_id' => 1,
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime()
             ]);
         }
-        DB::table('tasks')->insert([
+        User::find(1)->tasks()->create([
             'detail' => "テスト5",
             'achievement' => true,
             'lesson_id' => 1,
             'user_id' => 1,
             'created_at' => new Carbon('yesterday'),
-            'updated_at' => new Carbon('yesterday')
+            'updated_at' => new Carbon('yesterday'),
         ]);
-        DB::table('tasks')->insert([
-            'detail' => "テスト5",
+        User::find(1)->tasks()->create([
+            'detail' => "テスト6",
             'achievement' => false,
             'lesson_id' => 1,
             'user_id' => 1,
             'created_at' => new Carbon('yesterday'),
-            'updated_at' => new Carbon('yesterday')
+            'updated_at' => new Carbon('yesterday'),
         ]);
     }
 }
