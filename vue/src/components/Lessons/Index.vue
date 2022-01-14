@@ -15,7 +15,7 @@
     </v-card>
 </template>
 <script>
-import Card from '@/components/Lesson/Card'
+import Card from '@/components/Lessons/Card'
 
 export default {
     name: 'Lessons',

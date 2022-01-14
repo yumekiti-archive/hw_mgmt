@@ -7,7 +7,7 @@ export default {
     },
     mutations: {
         set: (state, response) => {
-            state.data = response.data;
+            state.data = response.data
         },
     },
     getters: {
