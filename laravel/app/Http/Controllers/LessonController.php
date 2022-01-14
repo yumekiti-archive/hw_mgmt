@@ -17,6 +17,11 @@ class LessonController extends Controller
         return Auth::user()->timetables()->with(['lesson', 'lesson_color'])->get();
     }
 
+    public function show($id)
+    {
+        return Auth::user()->tasks()->where('lesson_id', '=', $id)->get();
+    }
+
     public function store(Request $request)
     {
 
