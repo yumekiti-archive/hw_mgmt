@@ -39,7 +39,7 @@ import Task from '@/components/Task/Index'
 import History from '@/components/History'
 
 export default {
-    name: 'Dashboard',
+    name: 'DashboardView',
     data: () => {
         return {
             rateData: false,
