@@ -20,7 +20,7 @@ class TimetableTableSeeder extends Seeder
         );
 
         for($i = 1; $i < 5; $i++){
-            DB::table('timetables')->insert([
+            User::find(1)->timetables()->create([
                 'week_count' => $i,
                 'user_id' => 1,
                 'lesson_id' => $i,
@@ -28,7 +28,7 @@ class TimetableTableSeeder extends Seeder
                 'end' => date("Y-m-d ") . $end[($i - 1)],
             ]);
         }
-        DB::table('timetables')->insert([
+        User::find(1)->timetables()->create([
             'week_count' => 1,
             'user_id' => 1,
             'lesson_id' => 1,

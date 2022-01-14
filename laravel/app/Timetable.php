@@ -31,4 +31,17 @@ class Timetable extends Model
     public function lesson_color(){
         return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
     }
+
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->{$model->getKeyName()} = (string) Str::orderedUuid();
+        });
+    }
 }
