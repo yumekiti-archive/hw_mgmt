@@ -38,6 +38,7 @@ export default {
                     value: 'detail',
                 },
                 { text: 'created_at', value: 'created_at' },
+                { text: 'updated_at', value: 'updated_at' },
             ]
         },
     },
