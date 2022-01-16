@@ -1,9 +1,17 @@
 <template>
     <div>
-        <p>Lesson</p>
-        <Lesson
+        <v-container>
+            <p>Lesson</p>
+            <v-row>
+                <v-col
+                    cols="12"
+                >
+                    <Lesson
             :lesson="this.lesson"
         ></Lesson>
+                </v-col>
+            </v-row>
+        </v-container>
     </div>
 </template>
 <script>
