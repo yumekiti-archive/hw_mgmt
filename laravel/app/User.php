@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Invite;
 
 class User extends Authenticatable
 {
@@ -49,7 +50,7 @@ class User extends Authenticatable
 
     public function invites()
     {
-        return $this->hasMany(Invite::class,"user_id");
+        return $this->hasMany(Invite::class, "user_id");
     }
 
 }
