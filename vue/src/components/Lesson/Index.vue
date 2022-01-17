@@ -6,7 +6,7 @@
             item-key="name"
             class="elevation-1"
             :search="search"
-            items-per-page="20"
+            :items-per-page="20"
         >
             <template v-slot:top>
                 <v-text-field
