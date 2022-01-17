@@ -8,6 +8,9 @@
             :search="search"
             :items-per-page="20"
         >
+            <template v-slot:item.created_at="{ item }">
+                <span>{{item.created_at.substring(0, item.created_at.indexOf(" ")).replace('-', '/').replace('-', '/')}}</span>
+            </template>
             <template v-slot:top>
                 <v-text-field
                     v-model="search"
@@ -37,8 +40,8 @@ export default {
                     align: 'center',
                     value: 'detail',
                 },
-                { text: 'created_at', value: 'created_at' },
-                { text: 'updated_at', value: 'updated_at' },
+                { text: 'Date', align: 'center', value: 'created_at' },
+                { text: 'Updated', align: 'left', value: 'updated_at' },
             ]
         },
     },

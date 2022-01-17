@@ -7,8 +7,8 @@
                     cols="12"
                 >
                     <Lesson
-            :lesson="this.lesson"
-        ></Lesson>
+                        :lesson="this.lesson"
+                    ></Lesson>
                 </v-col>
             </v-row>
         </v-container>
