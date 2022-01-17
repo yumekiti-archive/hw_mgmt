@@ -47,11 +47,12 @@
             <input type="text" v-model="password" /><br>
         </span><br>
 
-        <button @click="this.get">get</button>
-        <button @click="this.post">post</button>
-        <button @click="this.put">put</button>
-        <button @click="this.delete">delete</button>
-        <button @click="this.login">login</button>
+        <button @click="this.get">get/</button>
+        <button @click="this.post">post/</button>
+        <button @click="this.put">put/</button>
+        <button @click="this.delete">delete/</button>
+        <button @click="this.login1">test login/</button>
+        <button @click="this.login2">hoge login/</button>
 
         <div>{{this.data}}</div>
 
@@ -142,10 +143,10 @@ export default {
                     console.log(res.data)
                 })
         },
-        login() {
+        login1() {
             const postData = {
-                email: this.email,
-                password: this.password,
+                email: 'test@test.jp',
+                password: 'testtest',
             }
             axios.get('/api/csrf-cookie').then(() => {
                 axios
@@ -155,7 +156,21 @@ export default {
                         console.log(res.data)
                     })
             });
-        }
+        },
+        login2() {
+            const postData = {
+                email: 'hoge@hoge.jp',
+                password: 'hogehoge',
+            }
+            axios.get('/api/csrf-cookie').then(() => {
+                axios
+                    .post('/api/login', postData)
+                    .then(res => {
+                        this.data = res.data
+                        console.log(res.data)
+                    })
+            });
+        },
     },
 }
 </script>

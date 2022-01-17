@@ -19,6 +19,16 @@ class TimetableTableSeeder extends Seeder
             '10:45:00', '12:30:00', '15:00:00', '16:45:00'
         );
 
+        for($i = 1; $i < 5; $i++){
+            DB::table('timetables')->insert([
+                'week_count' => $i,
+                'user_id' => 1,
+                'lesson_id' => $i,
+                'start' => date("Y-m-d ") . $start[($i - 1)],
+                'end' => date("Y-m-d ") . $end[($i - 1)],
+            ]);
+        }
+
         DB::table('timetables')->insert([
             'week_count' => 1,
             'user_id' => 1,
