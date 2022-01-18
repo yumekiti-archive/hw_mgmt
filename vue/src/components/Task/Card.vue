@@ -1,5 +1,5 @@
 <template>
-    <v-card class="card d-flex" @click="dialog.flag = !dialog.flag">
+    <v-card class="card d-flex" @click="flag()">
         <div class="color rounded" :style="'background-color:' + task.person_lesson.color"></div>
         <v-container class="ml-5 text-h6 text-xl-h4 text-md-h5 d-flex justify-left align-center">
             {{this.task.lesson.title}} : {{this.task.created_at.substring(0, this.task.created_at.indexOf(" ")).substr(this.task.created_at.indexOf('-') + 1).replace('-', '/')}} ({{this.yobi[this.week]}})
@@ -31,6 +31,15 @@ export default {
     },
     props: {
         task: []
+    },
+    methods: {
+        flag(){
+            if(!this.task.achievement){
+                this.dialog.flag = !this.dialog.flag
+            }else{
+                this.$store.dispatch('task/achievement', {id: this.task.id})
+            }
+        }
     },
     created() {
         this.week = new Date(this.task.created_at).getDay()
