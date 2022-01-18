@@ -49,7 +49,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/lesson', 'LessonController@index');
     Route::get('/lesson/{id}', 'LessonController@show');
     Route::post('/lesson', 'LessonController@store');
-    Route::put('/lesson/{id}', 'LessonController@update');
+    Route::post('/{user_id}/lesson/{lesson_id}','LessonController@achievement');
+    Route::put('/lesson/{id}','LessonController@update');
     Route::delete('/lesson/{id}', 'LessonController@destory');
 
     //時間割の処理

@@ -14,7 +14,7 @@ class LessonController extends Controller
     public function index(Request $request)
     {
         // 考えたくないのでフロントで実装した。
-        return Auth::user()->timetables()->with(['lesson', 'person_lesson'])->get();
+        return Auth::user()->timetables()->with(['lesson', 'lesson_color'])->get();
     }
 
     public function show($id)
@@ -58,6 +58,14 @@ class LessonController extends Controller
     public function destory($id){
         $lesson = Lesson::find($id);
         $lesson->delete();
+    }
+
+    public function achievement($id,$lesson_id){
+        if(Auth::user()->invites()->invite_user_id =! null ){
+            return User::find($id)->tasks()->get();
+
+        }
+        return response()->noContent();
     }
 }
 
