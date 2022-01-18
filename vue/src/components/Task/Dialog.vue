@@ -63,9 +63,6 @@ export default {
     },
     created() {
         this.TaskName = this.name
-        if(this.name){
-            this.TaskName = 'Nothing'
-        }
     },
 }
 </script>
