@@ -52,7 +52,7 @@ export default {
             return Array.from(new Set(this.$store.state.event.data.map(event => event.created_at.substring(0, event.created_at.indexOf(" ")))))
         },
         lessons(){
-            return this.$store.state.lesson.data.filter((element, index, self) => self.findIndex(e => e.lesson_color.lesson_id === element.lesson_color.lesson_id) === index)
+            return this.$store.state.lesson.data.filter((element, index, self) => self.findIndex(e => e.person_lesson.lesson_id === element.person_lesson.lesson_id) === index)
         }
     },
     created() {

@@ -32,9 +32,9 @@ class Task extends Model
         return $this->hasOne(Lesson::class, 'id', 'lesson_id');
     }
 
-    public function lesson_color()
+    public function person_lesson()
     {
-        return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
+        return $this->hasOne(PersonLesson::class, 'lesson_id', 'lesson_id');
     }
 
     protected $primaryKey = 'id';

@@ -10,15 +10,15 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return Auth::user()->tasks()->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->tasks()->with(['lesson', 'person_lesson'])->get();
     }
 
     public function today(){
-        return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->tasks()->whereDate('created_at', Carbon::today())->with(['lesson', 'person_lesson'])->get();
     }
 
     public function date(Request $request){
-        return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->tasks()->whereDate('created_at', $request->input('date'))->with(['lesson', 'person_lesson'])->get();
     }
 
     public function events(){
@@ -43,7 +43,7 @@ class TaskController extends Controller
     }
 
     public function achievement($id){
-        $task = Auth::user()->tasks()->with(['lesson', 'lesson_color'])->findOrFail($id);
+        $task = Auth::user()->tasks()->with(['lesson', 'person_lesson'])->findOrFail($id);
         $task->update([
             'achievement' => $task->achievement = !$task->achievement
         ]);
@@ -77,6 +77,6 @@ class TaskController extends Controller
     }
 
     public function histories(){
-        return Auth::user()->tasks()->latest('updated_at')->take(10)->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->tasks()->latest('updated_at')->take(10)->with(['lesson', 'person_lesson'])->get();
     }
 }

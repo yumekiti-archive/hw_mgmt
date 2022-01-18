@@ -14,7 +14,7 @@ class LessonController extends Controller
     public function index(Request $request)
     {
         // 考えたくないのでフロントで実装した。
-        return Auth::user()->timetables()->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->timetables()->with(['lesson', 'person_lesson'])->get();
     }
 
     public function show($id)

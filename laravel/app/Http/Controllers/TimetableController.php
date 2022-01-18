@@ -10,7 +10,7 @@ class TimetableController extends Controller
 
     public function index()
     {
-        return Auth::user()->timetables()->with(['lesson', 'lesson_color'])->get();
+        return Auth::user()->timetables()->with(['lesson', 'person_lesson'])->get();
     }
 
     public function store(Request $request)

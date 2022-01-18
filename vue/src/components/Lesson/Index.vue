@@ -8,7 +8,7 @@
             :search="search"
             :items-per-page="20"
         >
-            <template v-slot:[`item.created_at`]="{ item }">
+            <template v-if="lesson.created_at" v-slot:[`item.created_at`]="{ item }">
                 <span>{{item.created_at.substring(0, item.created_at.indexOf(" ")).replace('-', '/').replace('-', '/')}}</span>
             </template>
             <template v-slot:top>

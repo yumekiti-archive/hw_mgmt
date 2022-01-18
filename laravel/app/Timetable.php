@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\User;
 use App\Lesson;
-use App\LessonColor;
+use App\PersonLesson;
 
 class Timetable extends Model
 {
@@ -28,7 +28,7 @@ class Timetable extends Model
         return $this->hasOne(Lesson::class, 'id', 'lesson_id');
     }
 
-    public function lesson_color(){
-        return $this->hasOne(LessonColor::class, 'lesson_id', 'lesson_id');
+    public function person_lesson(){
+        return $this->hasOne(PersonLesson::class, 'lesson_id', 'lesson_id');
     }
 }

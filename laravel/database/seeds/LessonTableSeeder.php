@@ -22,7 +22,6 @@ class LessonTableSeeder extends Seeder
             'コンセプトワーク演習 Ⅱ_B',
             'SHR',
             'スマートフォン・アプリ演習 Ⅱ_B',
-            'ITシステム開発演習Ⅱ',
             'UNIXサーバー構築演習Ⅱ',
         );
 
