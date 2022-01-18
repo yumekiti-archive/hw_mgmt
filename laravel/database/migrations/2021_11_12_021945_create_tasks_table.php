@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('detail')->nullable();
+            $table->string('detail')->nullable()->default('Nothing');
             $table->unsignedBigInteger('lesson_id');
             $table->unsignedBigInteger('user_id');
             $table->boolean('achievement')->default(false);
