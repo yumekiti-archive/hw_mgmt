@@ -14,11 +14,17 @@ class LessonTableSeeder extends Seeder
     public function run()
     {
         //
-        $titles = [null];
-
-        for($i = 0; $i < 10; $i++){
-            $titles[$i] = '授業' . ($i + 1);
-        }
+        $titles = array(
+            'マイコン制御演習_B',
+            'Ciscoネットワーク演習Ⅱ',
+            'ITシステム開発演習Ⅱ',
+            '外国語',
+            'コンセプトワーク演習 Ⅱ_B',
+            'SHR',
+            'スマートフォン・アプリ演習 Ⅱ_B',
+            'ITシステム開発演習Ⅱ',
+            'UNIXサーバー構築演習Ⅱ',
+        );
 
         foreach ($titles as $title) {
             DB::table('lessons')->insert([

@@ -28,7 +28,7 @@ export default {
         },
     },
     created() {
-        this.week = new Date().getDay()
+        this.week = new Date(this.task.created_at).getDay()
     },
 }
 </script>

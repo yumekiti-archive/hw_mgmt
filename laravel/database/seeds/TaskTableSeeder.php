@@ -15,28 +15,15 @@ class TaskTableSeeder extends Seeder
     public function run()
     {
         //
-        for($i = 1; $i <= 4; $i++){
-            User::find(1)->tasks()->create([
-                'detail' => "テスト" . $i,
-                'lesson_id' => $i,
-                'user_id' => 1,
-            ]);
+        $user = User::find(1);
+        $timetables = $user->timetables()->get();
+        foreach($timetables as $timetable){
+            if($timetable->week_count == date('w')){
+                $user->tasks()->create([
+                    'lesson_id' => $timetable->lesson_id,
+                    'user_id' => $user->id,
+                ]);
+            }
         }
-        User::find(1)->tasks()->create([
-            'detail' => "テスト5",
-            'achievement' => true,
-            'lesson_id' => 1,
-            'user_id' => 1,
-            'created_at' => new Carbon('yesterday'),
-            'updated_at' => new Carbon('yesterday'),
-        ]);
-        User::find(1)->tasks()->create([
-            'detail' => "テスト6",
-            'achievement' => false,
-            'lesson_id' => 1,
-            'user_id' => 1,
-            'created_at' => new Carbon('yesterday'),
-            'updated_at' => new Carbon('yesterday'),
-        ]);
     }
 }
