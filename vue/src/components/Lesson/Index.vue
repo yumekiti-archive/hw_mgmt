@@ -8,8 +8,12 @@
             :search="search"
             :items-per-page="20"
         >
-            <template v-if="lesson.created_at" v-slot:[`item.created_at`]="{ item }">
-                <span>{{item.created_at.substring(0, item.created_at.indexOf(" ")).replace('-', '/').replace('-', '/')}}</span>
+            <template v-slot:[`item.detail`]="{ item }">
+                <span v-if="!item.detail">Nothing</span>
+                <span v-else>{{item.detail}}</span>
+            </template>
+            <template v-slot:[`item.created_at`]="{ item }">
+                <span v-if="item.created_at">{{item.created_at.substring(0, item.created_at.indexOf(" ")).replace('-', '/').replace('-', '/')}}</span>
             </template>
             <template v-slot:top>
                 <v-text-field

@@ -16,6 +16,13 @@ const api = {
             }
         })
     },
+    put(url, data){
+        return client.put(url, data).catch(error => {
+            if(error.response?.status === 401){
+                router.push('/test')
+            }
+        })
+    },
 }
 
 export default api;

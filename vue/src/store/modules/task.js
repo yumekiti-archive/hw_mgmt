@@ -33,6 +33,9 @@ export default {
                 this.dispatch('history/get')
             })
         },
+        async update(_, {id, data}){
+            await api.put('task/' + id, data)
+        },
         async date({commit}, {data}){
             await api.post('task/date', data).then(response => {
                 commit('set', response);
