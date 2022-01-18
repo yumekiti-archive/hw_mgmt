@@ -21,10 +21,10 @@ class TimetableTableSeeder extends Seeder
 
         $lessons = array(
             array(0, 0, 1, 1),
-            array(0, 0, 1, 1),
-            array(0, 0, 1, 1),
-            array(0, 0, 1, 1),
-            array(0, 0, 1, 1),
+            array(2, 2, 3, 3),
+            array(4, 5, 6, 0),
+            array(0, 0, 7, 7),
+            array(3, 3, 8, 8),
         );
 
         Carbon::setWeekStartsAt(Carbon::MONDAY);
@@ -40,6 +40,10 @@ class TimetableTableSeeder extends Seeder
                         'lesson_id' => $lessons[$i][$j],
                         'start' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $start[$j],
                         'end' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $end[$j],
+                    ]);
+                    DB::table('person_lessons')->insert([
+                        'lesson_id' => $lessons[$i][$j],
+                        'user_id' => 1,
                     ]);
                 }
             }

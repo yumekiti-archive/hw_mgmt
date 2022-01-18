@@ -62,9 +62,9 @@ export default {
         },
     },
     created() {
-        this.TaskName = ''
-        if(this.name != 'Nothing'){
-            this.TaskName = this.name
+        this.TaskName = this.name
+        if(this.name){
+            this.TaskName = 'Nothing'
         }
     },
 }
