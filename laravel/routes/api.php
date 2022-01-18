@@ -49,7 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/lesson', 'LessonController@index');
     Route::get('/lesson/{id}', 'LessonController@show');
     Route::post('/lesson', 'LessonController@store');
-    Route::post('/{user_id}/lesson/{lesson_id}','LessonController@achievement');
+    Route::post('/{user_id}/lesson/{lesson_id}','LessonController@achievement_lesson');
     Route::put('/lesson/{id}','LessonController@update');
     Route::delete('/lesson/{id}', 'LessonController@destory');
 
