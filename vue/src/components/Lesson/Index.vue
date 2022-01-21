@@ -9,8 +9,10 @@
             :items-per-page="20"
         >
             <template v-slot:[`item.detail`]="{ item }">
-                <span v-if="!item.detail">Nothing</span>
-                <span v-else>{{item.detail}}</span>
+                <div class="name">
+                    <span v-if="!item.detail">Nothing</span>
+                    <span v-else>{{item.detail}}</span>
+                </div>
             </template>
             <template v-slot:[`item.created_at`]="{ item }">
                 <span v-if="item.created_at">{{item.created_at.substring(0, item.created_at.indexOf(" ")).replace('-', '/').replace('-', '/')}}</span>
@@ -51,3 +53,8 @@ export default {
     },
 }
 </script>
+<style scoped>
+.name {
+    white-space: pre-wrap;
+}
+</style>

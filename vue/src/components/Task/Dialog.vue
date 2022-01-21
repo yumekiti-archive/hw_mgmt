@@ -10,11 +10,12 @@
             </v-card-title>
 
             <v-card-text style="margin-top: 30px">
-                <v-text-field
+                <v-textarea
+                    solo
+                    name="input-7-4"
                     label="TaskName"
-                    placeholder="Nothing"
                     v-model="TaskName"
-                ></v-text-field>
+                ></v-textarea>
             </v-card-text>
 
             <v-divider></v-divider>
@@ -62,6 +63,7 @@ export default {
         },
     },
     created() {
+        this.TaskName = ''
         this.TaskName = this.name
     },
 }
