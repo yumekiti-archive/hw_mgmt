@@ -20,9 +20,6 @@ class CreateInvitesTable extends Migration
             $table->foreign('invite_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('token')->uniqsue()->nullable();
             $table->datetime('expired');
-
-            //複合主キー
-            $table->primary(['user_id', 'invite_user_id']);
         });
     }
 

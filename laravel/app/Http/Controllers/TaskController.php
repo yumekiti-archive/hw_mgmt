@@ -31,7 +31,11 @@ class TaskController extends Controller
         $today = Auth::user()->tasks()->whereDate('created_at', Carbon::today())->where('achievement', '=', false)->count();
         $achievement = Auth::user()->tasks()->where('achievement', '=', true)->count();
         $not = ($all - $achievement - $today);
-        $rate = number_format($achievement / $all, 2);
+        if($all){
+            $rate = number_format($achievement / $all, 2);
+        }else{
+            $rate = 0;
+        }
 
         return [
             'all' => $all,
