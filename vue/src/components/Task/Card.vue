@@ -8,6 +8,7 @@
             <v-icon v-else class="mr-5">mdi-check-bold</v-icon>
         </v-container>
         <Dialog
+            ref="child"
             :dialog="dialog"
             :id="task.id"
             :name="task.detail"
@@ -34,6 +35,7 @@ export default {
     },
     methods: {
         flag(){
+            this.$refs.child.reset()
             if(!this.task.achievement){
                 this.dialog.flag = !this.dialog.flag
             }else{

@@ -61,10 +61,9 @@ export default {
             }
             this.$store.dispatch('task/achievement', {id: id})
         },
-    },
-    created() {
-        this.TaskName = ''
-        this.TaskName = this.name
+        reset(){
+            this.TaskName = this.name
+        },
     },
 }
 </script>
