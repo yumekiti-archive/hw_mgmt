@@ -27,6 +27,14 @@ class TimetableTableSeeder extends Seeder
             array(3, 3, 8, 8),
         );
 
+        $colors = array(
+            array('blue', 'blue', 'green', 'green'),
+            array('blue', 'blue', 'cyan', 'cyan'),
+            array('red', 'pink', 'grey', 'blue'),
+            array('blue', 'blue', 'purple', 'purple'),
+            array('blue', 'blue', 'orange', 'orange'),
+        );
+
         Carbon::setWeekStartsAt(Carbon::MONDAY);
         // Carbon::setWeekEndsAt(Carbon::FRIDAY);
         $dt = Carbon::today();
@@ -42,6 +50,7 @@ class TimetableTableSeeder extends Seeder
                         'end' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $end[$j],
                     ]);
                     DB::table('person_lessons')->insert([
+                        'color' => $colors[$i][$j],
                         'lesson_id' => $lessons[$i][$j],
                         'user_id' => 1,
                     ]);

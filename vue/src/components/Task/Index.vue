@@ -13,10 +13,9 @@
                     ></Card>
                 </v-col>
             </v-row>
-            <v-row v-if="!this.tasks[0]">
+            <v-row v-if="!this.tasks[0] && this.$route.path === '/'">
                 <v-col class="d-flex justify-center align-center" cols="12">
                     <img src="/storage/images/confetti-outline.gif" style="height: 300px;">
-                    Completed
                 </v-col>
             </v-row>
         </v-container>
