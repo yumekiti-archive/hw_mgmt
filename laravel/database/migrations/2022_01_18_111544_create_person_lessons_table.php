@@ -21,9 +21,6 @@ class CreatePersonLessonsTable extends Migration
             
             $table->string('detail')->nullable();
             $table->string('color')->default('blue');
-
-            //複合主キー
-            $table->primary(['user_id', 'lesson_id']);
         });
     }
 

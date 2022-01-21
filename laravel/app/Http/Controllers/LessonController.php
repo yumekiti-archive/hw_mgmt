@@ -62,7 +62,7 @@ class LessonController extends Controller
 
     public function achievement_lesson($id,$lesson_id){
         
-        return Auth::User()->invites()->where('invite_user_id', '=', $id)->firstOrFail()->user()->firstOrFail()->tasks()->get();
+        return Auth::User()->invites()->where('invite_user_id', '=', $id)->firstOrFail()->user()->find($id)->firstOrFail()->tasks()->where('lesson_id', '=' , $lesson_id)->get();
        //return User::find($id)->tasks()->get();
 
         
