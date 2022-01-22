@@ -19,7 +19,7 @@ class InviteController extends Controller
     public function index()
     {
         //
-        return Auth::user()->invites()->get();
+        return Auth::user()->invites()->with('users')->get();
     }
 
     /**

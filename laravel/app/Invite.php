@@ -19,5 +19,10 @@ class Invite extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, "invite_user_id");
+    }
     
 }
