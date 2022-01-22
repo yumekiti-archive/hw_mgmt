@@ -5,22 +5,23 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\User;
+use Carbon\Carbon;
 
-class AddTasksCommand extends Command
+class UpdateTimetable extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:add_tasks';
+    protected $signature = 'command:update_timetable';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'タスク追加';
+    protected $description = '時間割更新';
 
     /**
      * Create a new command instance.
@@ -40,16 +41,17 @@ class AddTasksCommand extends Command
     public function handle()
     {
         //
+        Carbon::setWeekStartsAt(Carbon::MONDAY);
+        $dt = Carbon::today();
+
         $users = User::all();
         foreach($users as $user){
             $timetables = $user->timetables()->get();
             foreach($timetables as $timetable){
-                if($timetable->week_count == date('w')){
-                    $user->tasks()->create([
-                        'lesson_id' => $timetable->lesson_id,
-                        'user_id' => $user->id,
-                    ]);
-                }
+                $user->timetables()->findOrFail($timetable->id)->update([
+                    'start' => Carbon::parse($timetable->start)->addDays(7)->toDateString()  . ' ' . explode(' ', $timetable->start)[1],
+                    'end' => Carbon::parse($timetable->end)->addDays(7)->toDateString() . ' ' . explode(' ', $timetable->end)[1],
+                ]);
             }
         }
     }

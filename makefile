@@ -73,3 +73,11 @@ docker-rm:
 .PHONY: file-rm
 file-rm:
 	rm -fr ./vue/node_modules/
+
+.PHONY: update_timetable
+update_timetable:
+	$(dc) -f ./docker/docker-compose.yml exec php php artisan command:update_timetable
+
+.PHONY: add_tasks
+add_tasks:
+	$(dc) -f ./docker/docker-compose.yml exec php php artisan command:add_tasks

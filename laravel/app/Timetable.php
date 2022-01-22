@@ -11,14 +11,14 @@ use App\PersonLesson;
 class Timetable extends Model
 {
     protected $fillable = [
-        'week_count', 'period', 'lesson_id',
-    ];
-    
-    protected $hidden = [
-        'id', 'user_id', 'lesson_id', 'updated_at'
+        'week_count', 'user_id', 'lesson_id', 'start', 'end'
     ];
 
-    // public $timestamps = false;
+    protected $hidden = [
+        'id', 'user_id', 'lesson_id'
+    ];
+
+    public $timestamps = false;
 
     public function user(){
         return $this->belongsTo(User::class);
