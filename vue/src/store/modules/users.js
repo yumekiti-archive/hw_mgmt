@@ -18,5 +18,10 @@ export default {
                 commit('set', response);
             })
         },
+        async lessons({commit}, {id}) {
+            await api.get(id + '/lessons').then(response => {
+                commit('set', response);
+            })
+        },
     },
 }

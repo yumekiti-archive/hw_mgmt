@@ -9,6 +9,7 @@ import Setting from '@/views/Setting.vue'
 import Timetable from '@/views/Timetable.vue'
 import Login from '@/views/Login.vue'
 import Lesson from '@/views/Lesson.vue'
+import AnotherUser from '@/views/AnotherUser.vue'
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,11 @@ const routes = [
         path: '/lesson/:id',
         name: 'LessonView',
         component: Lesson
+    },
+    {
+        path: '/:user_id/lessons/',
+        name: 'AnotherUserView',
+        component: AnotherUser
     },
     {
         // 開発後消す

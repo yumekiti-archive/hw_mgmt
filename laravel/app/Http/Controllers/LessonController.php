@@ -69,5 +69,9 @@ class LessonController extends Controller
         
         // return response()->noContent();
     }
+
+    public function another_user($user_id){
+        return $user_id;
+    }
 }
 

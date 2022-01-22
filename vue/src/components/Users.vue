@@ -1,5 +1,5 @@
 <template>
-    <v-card :to="'hoge'">
+    <v-card :to="user.users.id + '/lessons'">
         <v-list-item>
             <v-list-item-avatar>
                 <v-img :src="user.users.profile_image"></v-img>
