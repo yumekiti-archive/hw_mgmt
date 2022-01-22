@@ -10,7 +10,7 @@
                         <v-calendar
                             interval-height="200"
                             ref="calendar"
-                            type="week"
+                            :type="$vuetify.breakpoint.xs ? '4day' : 'week'"
                             color="primary"
                             :events="events"
                             :weekdays="weekday"
