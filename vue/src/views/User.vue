@@ -6,15 +6,22 @@
                 <v-col
                     cols="12"
                 >
-                    {{this.user}}
+                    <Profile
+                        :user="this.user"
+                    ></Profile>
                 </v-col>
             </v-row>
         </v-container>
     </div>
 </template>
 <script>
+import Profile from '@/components/Profile'
+
 export default {
     name: 'UserView',
+    components: {
+        Profile,
+    },
     computed: {
         user(){
             return this.$store.state.user.data
