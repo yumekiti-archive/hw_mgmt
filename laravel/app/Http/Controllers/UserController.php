@@ -48,4 +48,9 @@ class UserController extends Controller
         return response()->noContent();
     }
 
+    public function another_user($id){
+        Auth::User()->invites()->where('invite_user_id', '=', $id)->firstOrFail();
+        return User::findOrFail($id);
+    }
+
 }

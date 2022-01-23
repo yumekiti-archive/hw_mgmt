@@ -5,6 +5,13 @@
                 <v-col
                     cols="12"
                 >
+                    <Profile
+                        :user="this.user"
+                    ></Profile>
+                </v-col>
+                <v-col
+                    cols="12"
+                >
                     <Lessons
                         v-if="flag"
                         :lessons="this.lessons"
@@ -14,6 +21,7 @@
         </v-container>
 </template>
 <script>
+import Profile from '@/components/Profile'
 import Lessons from '@/components/Lessons/Index'
 
 export default {
@@ -25,16 +33,21 @@ export default {
     },
     components: {
         Lessons,
+        Profile,
     },
     computed: {
         lessons(){
-            return this.$store.state.users.data.filter((element, index, self) => self.findIndex(e => e.person_lesson.lesson_id === element.person_lesson.lesson_id) === index)
+            return this.$store.state.lesson.data.filter((element, index, self) => self.findIndex(e => e.person_lesson.lesson_id === element.person_lesson.lesson_id) === index)
+        },
+        user(){
+            return this.$store.state.users.data
         },
     },
     created() {
+        this.$store.dispatch('users/show', {id: this.$route.params.user_id})
         this.$store.state.lesson.data = []
         new Promise((resolve) => {
-            resolve(this.$store.dispatch('users/lessons', {id: this.$route.params.user_id}))
+            resolve(this.$store.dispatch('lesson/user', {id: this.$route.params.user_id}))
         }).then(() => {
             this.flag = true
         })

@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user', 'UserController@update');
     Route::post('/user', 'UserController@store');
     Route::delete('/user', 'UserController@destory');
+    Route::get('/user/{id}', 'UserController@another_user');
 
     //タスクの処理
     Route::get('/task', 'TaskController@index');
