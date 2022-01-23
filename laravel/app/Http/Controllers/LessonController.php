@@ -60,19 +60,15 @@ class LessonController extends Controller
         $lesson->delete();
     }
 
-    public function achievement_lesson($id,$lesson_id){
+    public function achievement_lesson($user_id, $id){
         
-        return Auth::User()->invites()->where('invite_user_id', '=', $id)->firstOrFail()
-                ->user()->find($id)->firstOrFail()->tasks()->where('lesson_id', '=' , $lesson_id)->get();
-       //return User::find($id)->tasks()->get();
-
-        
-        // return response()->noContent();
+        Auth::User()->invites()->where('invite_user_id', '=', $user_id)->firstOrFail();
+        return User::findOrFail($user_id)->tasks()->where('lesson_id', '=', $id)->get();
     }
 
     public function another_user($user_id){
         Auth::User()->invites()->where('invite_user_id', '=', $user_id)->firstOrFail();
-        return User::findOrFail($user_id)->timetables()->with(['lesson', 'person_lesson'])->get();;
+        return User::findOrFail($user_id)->timetables()->with(['lesson', 'person_lesson'])->get();
     }
 }
 

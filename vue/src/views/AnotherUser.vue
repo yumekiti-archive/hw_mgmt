@@ -6,6 +6,7 @@
                     cols="12"
                 >
                     <Lessons
+                        v-if="flag"
                         :lessons="this.lessons"
                     ></Lessons>
                 </v-col>
@@ -17,6 +18,11 @@ import Lessons from '@/components/Lessons/Index'
 
 export default {
     name: 'AnotherUserView',
+    data: () => {
+        return {
+            flag: false,
+        }
+    },
     components: {
         Lessons,
     },
@@ -27,7 +33,11 @@ export default {
     },
     created() {
         this.$store.state.lesson.data = []
-        this.$store.dispatch('users/lessons', {id: this.$route.params.user_id})
+        new Promise((resolve) => {
+            resolve(this.$store.dispatch('users/lessons', {id: this.$route.params.user_id}))
+        }).then(() => {
+            this.flag = true
+        })
     },
 }
 </script>
