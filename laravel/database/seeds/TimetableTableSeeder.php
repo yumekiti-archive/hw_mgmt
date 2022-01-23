@@ -39,21 +39,23 @@ class TimetableTableSeeder extends Seeder
         // Carbon::setWeekEndsAt(Carbon::FRIDAY);
         $dt = Carbon::today();
 
-        for($i = 0; $i < 5; $i++){
-            for($j = 0; $j < 4; $j++){
-                if($lessons[$i][$j]){
-                    DB::table('timetables')->insert([
-                        'week_count' => ($i + 1),
-                        'user_id' => 1,
-                        'lesson_id' => $lessons[$i][$j],
-                        'start' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $start[$j],
-                        'end' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $end[$j],
-                    ]);
-                    DB::table('person_lessons')->insert([
-                        'color' => $colors[$i][$j],
-                        'lesson_id' => $lessons[$i][$j],
-                        'user_id' => 1,
-                    ]);
+        for($k = 1; $k <= 2; $k++){
+            for($i = 0; $i < 5; $i++){
+                for($j = 0; $j < 4; $j++){
+                    if($lessons[$i][$j]){
+                        DB::table('timetables')->insert([
+                            'week_count' => ($i + 1),
+                            'user_id' => $k,
+                            'lesson_id' => $lessons[$i][$j],
+                            'start' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $start[$j],
+                            'end' => $dt->startOfWeek()->addDays($i)->toDateString() . ' ' . $end[$j],
+                        ]);
+                        DB::table('person_lessons')->insert([
+                            'color' => $colors[$i][$j],
+                            'lesson_id' => $lessons[$i][$j],
+                            'user_id' => $k,
+                        ]);
+                    }
                 }
             }
         }

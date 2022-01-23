@@ -17,13 +17,12 @@ class Lesson extends Model
 
     public function tasks()
     {
-        return $this->hasMany(Lesson::class,"lesson_id");
+        return $this->hasMany(Lesson::class, "lesson_id");
     }
-
 
     public function timetables()
     {
-        return $this->hasMany(Lesson::class,"lesson_id");
+        return $this->hasMany(Lesson::class, "lesson_id");
     }
 
     public function person_lesson()

@@ -71,7 +71,8 @@ class LessonController extends Controller
     }
 
     public function another_user($user_id){
-        return $user_id;
+        Auth::User()->invites()->where('invite_user_id', '=', $user_id)->firstOrFail();
+        return User::findOrFail($user_id)->timetables()->with(['lesson', 'person_lesson'])->get();;
     }
 }
 

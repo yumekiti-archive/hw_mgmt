@@ -17,6 +17,12 @@ class InviteTableSeeder extends Seeder
             'token' => 'hogehoge',
             'expired' => new DateTime(),
         ]);
+        DB::table('invites')->insert([
+            'user_id' => 2,
+            'invite_user_id' => 1,
+            'token' => '',
+            'expired' => new DateTime(),
+        ]);
     }
 }
 ?>
