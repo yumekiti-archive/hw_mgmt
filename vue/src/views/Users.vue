@@ -1,7 +1,13 @@
 <template>
     <div>
         <v-container>
-            <p>Users</p>
+            <v-row class="mt-1">
+                <span class="mt-2">Users</span>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                    <v-icon>mdi-plus</v-icon>
+                </v-btn>
+            </v-row>
             <v-row>
                 <v-col
                     cols="12"
