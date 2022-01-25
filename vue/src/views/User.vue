@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-container>
-            <p>Users</p>
+            <p>User</p>
             <v-row>
                 <v-col
                     cols="12"

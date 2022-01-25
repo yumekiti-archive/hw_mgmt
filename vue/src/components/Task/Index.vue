@@ -3,7 +3,8 @@
         <v-container>
             <v-row>
                 <v-col cols="12" class="d-flex">
-                    <span>Task</span>
+                    <span v-if="this.$route.path === '/'">Today</span>
+                    <span v-else>Task</span>
                 </v-col>
             </v-row>
             <v-row>
