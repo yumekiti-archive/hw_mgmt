@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         lesson(){
-            return this.$store.state.lesson.data
+            return this.$store.state.lesson.data.filter(task => task.achievement)
         }
     },
     created() {

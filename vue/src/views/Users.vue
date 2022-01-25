@@ -29,6 +29,7 @@ export default {
         },
     },
     created() {
+        this.$store.state.users.data = []
         this.$store.dispatch('users/get')
     },
 }
